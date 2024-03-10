@@ -9,6 +9,17 @@ class Produit extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+                    'nom',
+                    'forme_galenique',
+                    'dosage',
+                    'prix',
+                    'description',
+                    'fabricant',
+                    'code_CIP',
+                    'date_peremption',
+    ];
+
     public function commandes(){
         return $this->hasMany(Commande::class);
     }
@@ -19,6 +30,13 @@ class Produit extends Model
 
     public function stockMovements(){
         return $this->hasMany(StockMovement::class);
+    }
+    public function getStockStateAttribute()
+    {
+        $entrees = $this->stockMovements()->where('movement_type', 'in')->sum('quantite');
+        $sorties = $this->stockMovements()->where('movement_type', 'out')->sum('quantite');
+
+        return $entrees - $sorties;
     }
 
 }

@@ -9,7 +9,7 @@ use App\Models\Produit;
 class ProduitComponent extends Component
 {
 
-    public $perPage = 5;
+
     public $search = '';
     public $sortField = 'id';
     public $sortDirection = 'asc';
@@ -42,6 +42,23 @@ class ProduitComponent extends Component
             $this->sortField = $field;
             $this->sortDirection = 'asc';
         }
+    }
+
+    public function delete($id){
+        $produit = Produit::find($id);
+
+        if($produit){
+            $produit->stockMovements()->delete();
+            $produit->delete();
+        }
+    }
+
+    public function showDetails($id){
+        $this->dispatch('showed', data:$id);
+    }
+
+    public function showTransactions($id){
+        $this->dispatch('transac', data:$id);
     }
 
 

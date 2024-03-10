@@ -9,6 +9,12 @@ class StockMovement extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'produit_id',
+        'quantite',
+        'movement_type',
+    ];
+
     public function produit(){
         return $this->belongsTo(Produit::class);
     }

@@ -9,12 +9,8 @@ use Livewire\Attributes\On;
 class FactureComponent extends Component
 {
     public $products = [];
-    public $qte;
-    public $totalGeneral;
 
-    public function mount(){
-        $this->qte = 1;
-    }
+    public $totalGeneral;
 
     public function render(){
         return view('livewire.facture-component');
@@ -26,10 +22,20 @@ class FactureComponent extends Component
         $existingProduct = collect($this->products)->firstWhere('id', $data);
 
         if ($existingProduct) {
-            $this->qte += 1;
+            $existingProduct['qte'] += 1;
         } else {
 
-            $this->products[] = Produit::find($data);
+            $product = Produit::find($data);
+            if ($product){
+                $this->products[] = [
+                    'id' => $product->id,
+                    'nom' => $product->nom,
+                    'dosage' => $product->dosage,
+                    'forme' => $product->forme_galenique,
+                    'prixU' => $product->prix,
+                    'qte' => 1,
+                ];
+            }
         }
     }
 

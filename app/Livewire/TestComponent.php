@@ -8,20 +8,28 @@ use App\Models\Produit;
 
 class TestComponent extends Component
 {
-    use WithPagination;
 
-    public $perPage = 5;
+
+
     public $search = '';
     public $sortField = 'id';
     public $sortDirection = 'asc';
+    public $afficher = 10;
 
     public function render()
     {
-        $produits = Produit::query()
+        if ($this->afficher == "all"){
+            $produits = Produit::orderBy($this->sortField, $this->sortDirection)
+            ->where('nom', 'like', '%' . $this->search . '%')
+            ->get();
+
+        }else{
+            $produits = Produit::query()
             ->where('nom', 'like', '%' . $this->search . '%')
             ->orderBy($this->sortField, $this->sortDirection)
-            ->paginate($this->perPage);
-
+            ->take($this->afficher)
+            ->get();
+        }
         return view('livewire.test-component', compact('produits'));
     }
 

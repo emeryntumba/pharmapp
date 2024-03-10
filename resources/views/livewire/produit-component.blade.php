@@ -1,23 +1,25 @@
 <div>
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
     <div class="mb-3 row">
         <div class="col-md-6">
             <div class="row align-items-center">
-                <div class="col-md-2">
-                    <label for="search" class="form-label">Rechercher</label>
-                </div>
                 <div class="col-md-10">
-                    <input type="text" id="search" class="form-control" wire:model.live="search">
+                    <input type="text" id="search" class="form-control" wire:model.live="search" placeholder="Rechercher">
                 </div>
             </div>
         </div>
 
         <div class="col-md-2">
             <div class="row align-items-center">
-                <div class="col-md-4">
+                <div class="col-4">
                     <label for="afficher">Afficher</label>
                 </div>
-                <div class="col-md-8">
-                    <select  wire:model.live="afficher" class="form-select">
+                <div class="col-8 mt-2">
+                    <select wire:model.live="afficher" class="form-select">
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
@@ -36,7 +38,7 @@
             <thead class="text-dark fs-4 table-primary">
                 <tr>
                     <th class="border-bottom-0" wire:click="sortBy('id')">
-                        <h6 class="fw-semibold mb-0">Id</h6>
+                        <h6 class="fw-semibold mb-0">N°</h6>
                     </th>
                     <th class="border-bottom-0" wire:click="sortBy('nom')">
                         <h6 class="fw-semibold mb-0">Produit</h6>
@@ -51,7 +53,7 @@
                         <h6 class="fw-semibold mb-0">Dosage</h6>
                     </th>
                     <th class="border-bottom-0" wire:click="sortBy('forme_galenique')">
-                        <h6 class="fw-semibold mb-0">Forme Galenique</h6>
+                        <h6 class="fw-semibold mb-0">Forme</h6>
                     </th>
                     <th class="border-bottom-0" wire:click="sortBy('forme_galenique')">
                         <h6 class="fw-semibold mb-0">Enregistrement</h6>
@@ -64,17 +66,17 @@
             <tbody>
                 @foreach ($produits as $produit)
                     <tr>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $produit->id }}</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $loop->iteration }}</h6></td>
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->nom }}</p></td>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0 fs-4">${{ $produit->prix }}</h6></td>
-                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">4</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0 fs-4">{{ $produit->prix }}FC</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{$produit->stock_state}}</h6></td>
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->dosage }}</p></td>
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->forme_galenique }}</p></td>
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->created_at }}</p></td>
                         <td class="border-bottom-0">
-                            <a href=""><button class="btn btn-primary"><i class="ti ti-eye"></i></button></a>
-                            <a href=""><button class="btn btn-warning"><i class="ti ti-pencil"></i></button></a>
-                            <a href=""><button class="btn btn-danger"><i class="ti ti-trash"></i></button></a>
+                            <button class="btn btn-primary" wire:click="showTransactions({{$produit->id}})" data-bs-toggle="modal" data-bs-target="#Modal3"><i class="ti ti-exchange"></i></button>
+                            <button class="btn btn-warning" wire:click="showDetails({{$produit->id}})" data-bs-toggle="modal" data-bs-target="#Modal2"><i class="ti ti-pencil"></i></button>
+                            <button class="btn btn-danger" wire:click="delete({{$produit->id}})" wire:confirm="Etes-vous sur de vouloir supprimer ce produit?"><i class="ti ti-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach

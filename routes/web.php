@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ProduitController;
+use App\Http\Controllers\StockController;
 use App\Http\Controllers\VenteController;
 
 /*
@@ -22,3 +23,5 @@ Route::get('home', [IndexController::class, 'index'])->name('index');
 Route::get('/vente', [VenteController::class, 'index'])->name('vente');
 
 Route::get('/produit', [ProduitController::class, 'index'])->name('produit');
+
+Route::get('/stock', [StockController::class, 'index'])->name('stock');
