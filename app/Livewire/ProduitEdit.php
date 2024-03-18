@@ -15,7 +15,7 @@ class ProduitEdit extends Component
         return view('livewire.produit-edit');
     }
 
-    #[On('showed')]
+   
     public function listen($data){
         $this->produit = Produit::findOrFail($data);
     }

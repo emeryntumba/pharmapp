@@ -74,10 +74,11 @@
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->forme_galenique }}</p></td>
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->created_at }}</p></td>
                         <td class="border-bottom-0">
-                            <button class="btn btn-primary" wire:click="showTransactions({{$produit->id}})" data-bs-toggle="modal" data-bs-target="#Modal3"><i class="ti ti-exchange"></i></button>
-                            <button class="btn btn-warning" wire:click="showDetails({{$produit->id}})" data-bs-toggle="modal" data-bs-target="#Modal2"><i class="ti ti-pencil"></i></button>
+                            <a href="{{route('produit.show', ['id' => $produit->id])}}"><button class="btn btn-primary" wire:click="showTransactions({{$produit->id}})"><i class="ti ti-exchange"></i></button></a>
+                            <a href="{{route('produit.edit', ['id' => $produit->id])}}"><button class="btn btn-warning" id={{$produit->id}} data-bs-toggle="modal" data-bs-target="#Modal2"><i class="ti ti-pencil"></i></button></a>
                             <button class="btn btn-danger" wire:click="delete({{$produit->id}})" wire:confirm="Etes-vous sur de vouloir supprimer ce produit?"><i class="ti ti-trash"></i></button>
                         </td>
+
                     </tr>
                 @endforeach
             </tbody>

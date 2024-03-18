@@ -70,9 +70,7 @@ class FormulaireProduit extends Component
 
             $this->dispatch('closeModal');
 
-            session()->flash('status', "Produit enregistré avec succès");
-
-            $this->redirect('/produit');
+            return redirect()->route('produit')->with('enregistrement', "Produit enregistré avec succès");
 
         } catch (\Exception $e) {
 
