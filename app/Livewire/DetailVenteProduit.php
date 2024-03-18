@@ -4,26 +4,32 @@ namespace App\Livewire;
 
 use App\Models\Produit;
 use Livewire\Component;
-use Livewire\Attributes\On;
+
+
 
 class DetailVenteProduit extends Component
 {
 
     public $produit;
-    public $isOpen = false;
+    public $afficher = 10;
 
     public function render(){
-        return view('livewire.detail-vente-produit');
-    }
 
-    #[On('transac')]
-    public function listen($data){
-        $this->produit = Produit::find($data);
-        $this->isOpen = true;
-    }
+        if($this->afficher = "all"){
+            $stockMovements = $this->produit
+                            ->stockMovements()
+                            ->orderBy('created_at', 'desc')
+                            ->get();
 
-    public function close(){
-        $this->isOpen = false;
+        }else{
+            $stockMovements = $this->produit
+                            ->stockMovements()
+                            ->orderBy('created_at', 'desc')
+                            ->take($this->afficher)
+                            ->get();
+        }
+
+        return view('livewire.detail-vente-produit', compact('stockMovements'));
     }
 
 }
