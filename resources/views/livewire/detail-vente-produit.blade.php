@@ -5,7 +5,7 @@
                 <div class="col-4">
                     <label for="afficher">Afficher</label>
                 </div>
-                <div class="col-8 mt-2">
+                <div class="col-8">
                     <select wire:model.live="afficher" class="form-select">
                         <option value="10">10</option>
                         <option value="20">20</option>
@@ -19,8 +19,8 @@
     </div>
 
     <div class="d-flex align-items-stretch">
-        <div class="card w-100">
-          <div class="card-body p-4 pb-5">
+        <div class="card w-100 pb-4">
+          <div class="card-body p-4">
             <div class="mb-4">
               <h5 class="card-title fw-semibold">Mouvement Récents</h5>
             </div>

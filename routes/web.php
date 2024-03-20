@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VenteController;
@@ -32,6 +33,8 @@ Route::middleware('auth')->group(function () {
             Route::put('update/{id}', 'update')->name('produit.update');
         });
     });
+
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 });
 
 

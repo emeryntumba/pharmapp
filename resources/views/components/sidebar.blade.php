@@ -35,7 +35,7 @@
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
-                <span class="hide-menu">Commande & Vente</span>
+                <span class="hide-menu">Vente</span>
             </a>
           </li>
           <li class="sidebar-item">
@@ -43,7 +43,7 @@
               <span>
                 <i class="ti ti-article"></i>
               </span>
-              <span class="hide-menu">Gestion Produit</span>
+              <span class="hide-menu">Gérer les produits</span>
             </a>
           </li>
           <li class="sidebar-item">
@@ -51,15 +51,15 @@
               <span>
                 <i class="ti ti-alert-circle"></i>
               </span>
-              <span class="hide-menu">Gestion Stock</span>
+              <span class="hide-menu">Factures & Mouvements</span>
             </a>
           </li>
           <li class="nav-small-cap">
             <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-            <span class="hide-menu">AUTH</span>
+            <span class="hide-menu">Autres</span>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+            <a class="sidebar-link" href="{{url('user/profile')}}" aria-expanded="false">
               <span>
                 <i class="ti ti-login"></i>
               </span>
@@ -67,7 +67,7 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="./authentication-register.html" aria-expanded="false">
+            <a class="sidebar-link" href="http://www.pharmapp.opencommonhealth.com/support" target="_blank" aria-expanded="false">
               <span>
                 <i class="ti ti-user-plus"></i>
               </span>
@@ -78,10 +78,14 @@
         </ul>
         <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
           <div class="d-flex">
-            <div class="unlimited-access-title me-3">
+            <form action="{{route('logout')}}" method="POST">
+                <div class="unlimited-access-title me-3">
 
-              <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Se déconnecter</a>
-            </div>
+                        @csrf
+
+                        <button type="submit" formmethod="POST" class="btn btn-primary fs-2 fw-semibold lh-sm">Se déconnecter</button>
+                </div>
+            </form>
 
           </div>
         </div>

@@ -62,7 +62,7 @@ return [
         // Features::profilePhotos(),
         // Features::api(),
         // Features::teams(['invitations' => true]),
-        Features::accountDeletion(),
+        //Features::accountDeletion(),
     ],
 
     /*
@@ -78,6 +78,6 @@ return [
 
     'profile_photo_disk' => 'public',
 
-    
+
 
 ];

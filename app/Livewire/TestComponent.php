@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
+use Livewire\Attributes\On;
 use App\Models\Produit;
 
 class TestComponent extends Component
@@ -15,16 +15,17 @@ class TestComponent extends Component
     public $sortField = 'id';
     public $sortDirection = 'asc';
     public $afficher = 10;
+    public $produits;
 
     public function render()
     {
         if ($this->afficher == "all"){
-            $produits = Produit::orderBy($this->sortField, $this->sortDirection)
+            $produits = $this->produits = Produit::orderBy($this->sortField, $this->sortDirection)
             ->where('nom', 'like', '%' . $this->search . '%')
             ->get();
 
         }else{
-            $produits = Produit::query()
+            $produits = $this->produits = Produit::query()
             ->where('nom', 'like', '%' . $this->search . '%')
             ->orderBy($this->sortField, $this->sortDirection)
             ->take($this->afficher)
@@ -46,5 +47,10 @@ class TestComponent extends Component
     public function addToInvoice($productId)
     {
         $this->dispatch('product-added', data: $productId);
+    }
+
+    #[On('stock-refreshed')]
+    public function refreshStock(){
+        $this->produits = Produit::all();
     }
 }

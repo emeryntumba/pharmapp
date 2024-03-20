@@ -9,6 +9,12 @@ class Commande extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'client_id',
+        'montant_total',
+        'mode_paiement',
+    ];
+
     public function produit(){
         return $this->belongsTo(Produit::class);
     }

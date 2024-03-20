@@ -35,7 +35,7 @@
     @if (count($produits) != 0)
     <div class="table-responsive">
         <table class="table table-hover text-nowrap mb-0 align-middle ">
-            <thead class="text-dark fs-4 table-primary">
+            <thead class="text-dark fs-4">
                 <tr>
                     <th class="border-bottom-0" wire:click="sortBy('id')">
                         <h6 class="fw-semibold mb-0">N°</h6>
