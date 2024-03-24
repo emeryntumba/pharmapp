@@ -44,7 +44,8 @@
                     Pas de valeur
                 @endif
             </table>
-            <p class="text-right mt-2">Total General: <span class="fw-semibold"> FC</span></p>
+            <p class="text-right mt-2">Total General: <span class="fw-semibold">{{ $totalGeneral }} FC</span></p>
+
 
 
         </div>

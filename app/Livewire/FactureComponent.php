@@ -18,7 +18,9 @@ class FactureComponent extends Component
 
     public function render(){
 
-        return view('livewire.facture-component');
+        return view('livewire.facture-component',[
+            'totalGeneral' => $this->calculerTotalGeneral(),
+        ]);
     }
 
     #[On('product-added')]
@@ -66,7 +68,19 @@ class FactureComponent extends Component
         if (is_numeric($quantite)) {
             // Si oui, mettre à jour le total
             $this->products[$index]['total'] = $quantite * $this->products[$index]['produit']->prix;
+            $this->calculerTotalGeneral();
         }
+    }
+    public function calculerTotalGeneral()
+    {
+        $totalGeneral = 0;
+
+        // Calculer la somme des totaux individuels de chaque produit
+        foreach ($this->products as $product) {
+            $totalGeneral += $product['total'];
+        }
+
+        return $totalGeneral;
     }
 
     public function resetInvoice(){
