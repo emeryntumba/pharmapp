@@ -64,4 +64,9 @@ class User extends Authenticatable
         return $this->hasMany(StockMovement::class);
     }
 
+    public function gestionnaire()
+    {
+        return $this->hasOne(Gestionnaire::class);
+    }
+
 }

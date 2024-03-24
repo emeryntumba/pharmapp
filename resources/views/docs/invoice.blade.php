@@ -10,61 +10,44 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            font-size: 10px
         }
         .container {
-            width: 80%;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            background-color: #f9f9f9;
+            width: 40%;
         }
         h1 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
         }
         th, td {
-            padding: 8px;
-            border: 1px solid #ddd;
-            text-align: left;
+            padding: 6px;
+
         }
-        th {
-            background-color: #f2f2f2;
-            font-weight: bold;
-        }
+       
         .total {
             font-weight: bold;
         }
-        @media print {
-            body {
-                width: 210mm; /* Largeur d'une page standard */
-                height: auto;
-            }
-            .container {
-                width: 190mm; /* Largeur du contenu de la facture */
-                padding: 10mm;
-                margin: 0;
-                border: none;
-                background-color: #fff;
-            }
-            /* Ajoutez d'autres styles pour l'impression si nécessaire */
-        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Facture</h1>
+        <h3>{{ $etablissement->nom_etablissement }}</h3>
+        <h5>RCCM:{{ $etablissement->rccm }} ID Nat: {{ $etablissement->num_impot }}</h5>
+        <h5>{{ $etablissement->adresse }}</h5>
+        <h5>{{ $commande->updated_at }}</h5>
+        <h4>Facture N°{{$commande->id}}</h4>
         <table>
             <thead>
                 <tr>
                     <th>N°</th>
-                    <th>Produit</th>
-                    <th>Prix unitaire</th>
-                    <th>Quantité</th>
+                    <th>Libelle</th>
+                    <th>PU</th>
+                    <th>Qté</th>
                     <th>Total</th>
                 </tr>
             </thead>

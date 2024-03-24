@@ -15,7 +15,6 @@ class FactureComponent extends Component
 {
     public $products = [];
 
-    public $totalGeneral;
 
     public function render(){
 
@@ -43,6 +42,8 @@ class FactureComponent extends Component
                 'total' => $produit->prix
             ];
         }
+
+
     }
 
     public function indexOfProductInInvoice($produitId)
@@ -73,7 +74,6 @@ class FactureComponent extends Component
     }
 
     public function save(){
-
         $montant_total = 0;
 
         $cmd =  Commande::create([
@@ -111,12 +111,15 @@ class FactureComponent extends Component
 
         $pdf = Pdf::loadView('docs.invoice', [
             'products'=>$this->products,
-            'totalGeneral'=>$montant_total
+            'totalGeneral'=>$montant_total,
+            'commande'=>$cmd,
+            'etablissement'=> Auth::user()->gestionnaire->etablissement,
         ]);
 
         $this->dispatch('stock-refreshed');
 
         $this->products = [];
+        $montant_total = 0;
 
         return response()->streamDownload(function () use ($pdf) {
             echo $pdf->stream();

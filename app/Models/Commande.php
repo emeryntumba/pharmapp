@@ -26,4 +26,8 @@ class Commande extends Model
     public function ligneCommandes(){
         return $this->hasMany(LigneCommande::class);
     }
+
+    public function gestionnaire(){
+        return $this->belongsTo(Gestionnaire::class);
+    }
 }

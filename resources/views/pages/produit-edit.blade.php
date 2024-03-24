@@ -35,9 +35,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="qte" class="form-label">Qté :</label>
-                    <input type="number" class="form-control" id="qte"  step="1" value="{{$produit->stock_state}}">
+                    <label for="qte" class="form-label">Stock actuel :</label>
+                    <div class="d-flex align-items-center"> <!-- Utilisation de flexbox pour regrouper les éléments -->
+                        <input type="number" disabled class="form-control me-3" value="{{$produit->stock_state}}"> <!-- Utilisation de "me-3" pour ajouter un espace à droite -->
+                        <label for="qte" class="form-label me-2">Ajouter</label> <!-- Utilisation de "me-2" pour ajouter un petit espace à droite -->
+                        <input type="number" class="form-control" name="qte" step="1">
+                    </div>
                 </div>
+
 
                 <div class="mb-3">
                     <label for="prix" class="form-label">Prix unitaire:</label>

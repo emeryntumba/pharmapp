@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\FinanceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\ParametreController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\StockController;
 use App\Http\Controllers\VenteController;
@@ -22,8 +24,10 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [IndexController::class, 'index'])->name('index');
     Route::get('home', [IndexController::class, 'index'])->name('index');
-    Route::get('/vente', [VenteController::class, 'index'])->name('vente');
-    Route::get('/stock', [StockController::class, 'index'])->name('stock');
+    Route::get('vente', [VenteController::class, 'index'])->name('vente');
+    Route::get('facture-mouvement', [StockController::class, 'index'])->name('stock');
+    Route::get('facture-mouvement/{id}', [StockController::class, 'show'])->name('facture.show');
+
 
     Route::controller(ProduitController::class)->group(function(){
         Route::group(['prefix' => 'produit'], function(){
@@ -34,7 +38,11 @@ Route::middleware('auth')->group(function () {
         });
     });
 
-    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
+    Route::get('finance', [FinanceController::class, 'index'])->name('finance');
+
+    Route::get('parametres', [ParametreController::class, 'index'])->name('parametre');
+    Route::put('parametres/update', [ParametreController::class, 'update'])->name('parametre.update');
 });
 
 

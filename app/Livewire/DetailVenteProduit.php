@@ -13,6 +13,7 @@ class DetailVenteProduit extends Component
     public $produit;
     public $afficher = 10;
 
+
     public function render(){
 
         if($this->afficher = "all"){

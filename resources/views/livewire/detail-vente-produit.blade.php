@@ -29,10 +29,10 @@
                 <li class="timeline-item d-flex position-relative overflow-hidden">
                     <div class="timeline-time text-dark flex-shrink-0 text-end">{{$stock->created_at->format('d/m/Y H:i')}}</div>
                     <div class="timeline-badge-wrap d-flex flex-column align-items-center">
-                    <span class="timeline-badge border-2 border border-{{$stock->movement_type === 'in' ? 'danger' : 'info'}} flex-shrink-0 my-8"></span>
+                    <span class="timeline-badge border-2 border border-{{$stock->movement_type === 'in' ? 'success' : 'danger'}} flex-shrink-0 my-8"></span>
                     <span class="timeline-badge-border d-block flex-shrink-0"></span>
                     </div>
-                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">{{$stock->motif === 'vente' ? 'Vente de ' . $stock->quantite . ' unités' : 'Approvisionnement de ' . $stock->quantite . ' unités'}}
+                    <div class="timeline-desc fs-3 text-dark mt-n1 fw-semibold">{{$stock->motif === 'vente' ? 'Vente de ' . $stock->quantite . ' unité(s)' : 'Approvisionnement de ' . $stock->quantite . ' unité(s)'}}
                         <a
                         href="javascript:void(0)" class="text-primary d-block fw-normal">#{{$stock->user->name}}</a>
                     </div>

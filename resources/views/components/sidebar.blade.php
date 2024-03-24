@@ -33,7 +33,7 @@
           <li class="sidebar-item">
             <a class="sidebar-link" href="{{route('vente')}}" aria-expanded="false">
                 <span>
-                  <i class="ti ti-layout-dashboard"></i>
+                  <i class="ti ti-cash"></i>
                 </span>
                 <span class="hide-menu">Vente</span>
             </a>
@@ -41,7 +41,7 @@
           <li class="sidebar-item">
             <a class="sidebar-link" href="{{route('produit')}}" aria-expanded="false">
               <span>
-                <i class="ti ti-article"></i>
+                <i class="ti ti-database"></i>
               </span>
               <span class="hide-menu">Gérer les produits</span>
             </a>
@@ -49,9 +49,17 @@
           <li class="sidebar-item">
             <a class="sidebar-link" href="{{route('stock')}}" aria-expanded="false">
               <span>
-                <i class="ti ti-alert-circle"></i>
+                <i class="ti ti-report-money"></i>
               </span>
               <span class="hide-menu">Factures & Mouvements</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
+            <a class="sidebar-link" href="{{route('finance')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-wallet"></i>
+              </span>
+              <span class="hide-menu">Finance</span>
             </a>
           </li>
           <li class="nav-small-cap">
@@ -59,9 +67,9 @@
             <span class="hide-menu">Autres</span>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="{{url('user/profile')}}" aria-expanded="false">
+            <a class="sidebar-link" href="{{route('parametre')}}" aria-expanded="false">
               <span>
-                <i class="ti ti-login"></i>
+                <i class="ti ti-settings"></i>
               </span>
               <span class="hide-menu">Paramètres</span>
             </a>
@@ -69,7 +77,7 @@
           <li class="sidebar-item">
             <a class="sidebar-link" href="http://www.pharmapp.opencommonhealth.com/support" target="_blank" aria-expanded="false">
               <span>
-                <i class="ti ti-user-plus"></i>
+                <i class="ti ti-help"></i>
               </span>
               <span class="hide-menu">Aide & Support</span>
             </a>

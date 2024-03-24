@@ -37,11 +37,15 @@
 
                     @endforeach
 
+
+
                 </tbody>
                 @else
                     Pas de valeur
                 @endif
             </table>
+            <p class="text-right mt-2">Total General: <span class="fw-semibold"> FC</span></p>
+
 
         </div>
 

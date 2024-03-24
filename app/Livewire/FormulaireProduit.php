@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Produit;
 use App\Models\StockMovement;
 use GuzzleHttp\Promise\Create;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 
@@ -62,9 +63,11 @@ class FormulaireProduit extends Component
 
             StockMovement::create(
                 [
+                    'user_id' => Auth::user()->id,
                     'produit_id' => $produit->id,
                     'quantite' => $this->qte,
                     'movement_type' => 'in',
+                    'motif' => 'approvisionnement'
                 ]
             );
 

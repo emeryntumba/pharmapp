@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Produit;
 use App\Models\StockMovement;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProduitController extends Controller
 {
@@ -36,12 +36,14 @@ class ProduitController extends Controller
     public function update(Request $request, $id){
         $produit = Produit::findOrFail($id);
         $produit->update($request->all());
-        $type='in';
+
         StockMovement::create(
             [
+                'user_id' => Auth::user()->id,
                 'produit_id' => $produit->id,
-                'quantite' => 2,
-                'movement_type' => $type,
+                'quantite' => $request->qte,
+                'movement_type' => 'in',
+                'motif' => 'approvisionnement'
             ]
         );
         session()->flash('maj', 'Modification apportée avec succès');
