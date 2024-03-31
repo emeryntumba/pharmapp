@@ -47,11 +47,11 @@
             </a>
           </li>
           <li class="sidebar-item">
-            <a class="sidebar-link" href="{{route('stock')}}" aria-expanded="false">
+            <a class="sidebar-link" href="{{route('facture')}}" aria-expanded="false">
               <span>
                 <i class="ti ti-report-money"></i>
               </span>
-              <span class="hide-menu">Factures & Mouvements</span>
+              <span class="hide-menu">Factures</span>
             </a>
           </li>
           <li class="sidebar-item">

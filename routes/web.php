@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FactureController;
 use App\Http\Controllers\FinanceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
@@ -24,9 +25,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/', [IndexController::class, 'index'])->name('index');
     Route::get('home', [IndexController::class, 'index'])->name('index');
+
     Route::get('vente', [VenteController::class, 'index'])->name('vente');
-    Route::get('facture-mouvement', [StockController::class, 'index'])->name('stock');
-    Route::get('facture-mouvement/{id}', [StockController::class, 'show'])->name('facture.show');
+
+    Route::get('factures', [FactureController::class, 'index'])->name('facture');
+
 
 
     Route::controller(ProduitController::class)->group(function(){
