@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('factures', [FactureController::class, 'index'])->name('facture');
 
+    Route::get('stock', [StockController::class, 'index'])->name('stock');
 
 
     Route::controller(ProduitController::class)->group(function(){

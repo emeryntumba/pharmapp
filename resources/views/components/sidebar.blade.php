@@ -55,6 +55,14 @@
             </a>
           </li>
           <li class="sidebar-item">
+            <a class="sidebar-link" href="{{route('stock')}}" aria-expanded="false">
+              <span>
+                <i class="ti ti-database-export"></i>
+              </span>
+              <span class="hide-menu">Mouvement du stock</span>
+            </a>
+          </li>
+          <li class="sidebar-item">
             <a class="sidebar-link" href="{{route('finance')}}" aria-expanded="false">
               <span>
                 <i class="ti ti-wallet"></i>
