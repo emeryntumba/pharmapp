@@ -51,5 +51,5 @@
     </div>
 
     </div>
-    <button class="btn btn-primary mb-3" wire:click="print()">Imprimer</button>
+    <button class="btn btn-primary m-3 mt-0" wire:click="print()">Imprimer</button>
 </div>

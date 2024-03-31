@@ -1,7 +1,7 @@
 <div class="card w-100">
     @if($commandes)
     <div class="card-body p-4">
-      <h5 class="card-title fw-semibold mb-4">Recent Transactions</h5>
+      <h5 class="card-title fw-semibold mb-4">Factures</h5>
       <div class="table-responsive ">
         <table class="table table-hover text-nowrap mb-0 align-middle">
           <thead class="text-dark fs-4">
@@ -58,7 +58,7 @@
                   <td class="border-bottom-0">
                       <h6 class="mb-0 fw-normal">{{$commande->updated_at->format('d/m/Y H:i')}}</h6>
                   </td>
-                  
+
               </tr>
 
               @endforeach
