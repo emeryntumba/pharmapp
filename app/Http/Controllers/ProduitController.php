@@ -49,4 +49,26 @@ class ProduitController extends Controller
         session()->flash('maj', 'Modification apportée avec succès');
         return redirect()->route('produit');
     }
+
+    public function create(){
+        return view('pages.produit-create');
+    }
+
+    public function store(Request $request){
+
+        $produit = Produit::create($request->all());
+
+        StockMovement::create(
+            [
+                'user_id' => Auth::user()->id,
+                'produit_id' => $produit->id,
+                'quantite' => request('qte'),
+                'movement_type' => 'in',
+                'motif' => 'approvisionnement'
+            ]
+        );
+        return redirect()
+                ->route('produit')
+                ->with('enregistrement', "Produit enregistré avec succès");
+    }
 }

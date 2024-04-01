@@ -32,15 +32,18 @@ Route::middleware('auth')->group(function () {
 
     Route::get('stock', [StockController::class, 'index'])->name('stock');
 
-
+    Route::get('produit/create', [ProduitController::class, 'create'])->name('produit.create');
+    Route::get('produit/edit/{id}',  [ProduitController::class, 'edit'])->name('produit.edit');
     Route::controller(ProduitController::class)->group(function(){
         Route::group(['prefix' => 'produit'], function(){
             Route::get('', [ProduitController::class, 'index'])->name('produit');
             Route::get('{id}','showTransactions')->name('produit.show');
-            Route::get('edit/{id}',  'edit')->name('produit.edit');
             Route::put('update/{id}', 'update')->name('produit.update');
+            Route::post('enregistrement/post', 'store')->name('produit.store');
         });
     });
+
+
 
     Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('finance', [FinanceController::class, 'index'])->name('finance');

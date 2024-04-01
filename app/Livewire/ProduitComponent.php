@@ -4,44 +4,43 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Produit;
+use Livewire\Attributes\On;
 
 
 class ProduitComponent extends Component
 {
 
-
     public $search = '';
-    public $sortField = 'id';
-    public $sortDirection = 'asc';
-    public $afficher = 10;
+    public $afficher;
+    public $produits;
+
+    public function mount(){
+
+        $this->afficher = 10;
+        $this->produits = Produit::query()
+            ->where('nom', 'like', '%' . $this->search . '%')
+            ->orderBy('created_at', 'desc')
+            ->take($this->afficher)
+            ->get();
+    }
 
     public function render()
     {
         if ($this->afficher == "all"){
-            $produits = Produit::orderBy($this->sortField, $this->sortDirection)
+            $this->produits = Produit::orderBy('created_at', 'desc')
             ->where('nom', 'like', '%' . $this->search . '%')
             ->get();
 
         }else{
-            $produits = Produit::query()
+            $this->produits = Produit::query()
             ->where('nom', 'like', '%' . $this->search . '%')
-            ->orderBy($this->sortField, $this->sortDirection)
+            ->orderBy('created_at', 'desc')
             ->take($this->afficher)
             ->get();
         }
 
 
-        return view('livewire.produit-component', compact('produits'));
-    }
-
-    public function sortBy($field)
-    {
-        if ($this->sortField === $field) {
-            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
-        } else {
-            $this->sortField = $field;
-            $this->sortDirection = 'asc';
-        }
+        return view('livewire.produit-component');
     }
 
     public function delete($id){
@@ -51,6 +50,11 @@ class ProduitComponent extends Component
             $produit->stockMovements()->delete();
             $produit->delete();
         }
+    }
+
+    #[On('products-refreshed')]
+    public function refreshList(){
+        $this->produits = Produit::all();
     }
 
     public function showDetails($id){

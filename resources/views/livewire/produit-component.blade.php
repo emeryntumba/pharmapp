@@ -37,25 +37,25 @@
         <table class="table table-hover text-nowrap mb-0 align-middle ">
             <thead class="text-dark fs-4">
                 <tr>
-                    <th class="border-bottom-0" wire:click="sortBy('id')">
+                    <th class="border-bottom-0">
                         <h6 class="fw-semibold mb-0">N°</h6>
                     </th>
-                    <th class="border-bottom-0" wire:click="sortBy('nom')">
+                    <th class="border-bottom-0">
                         <h6 class="fw-semibold mb-0">Produit</h6>
                     </th>
-                    <th class="border-bottom-0" wire:click="sortBy('prix')">
+                    <th class="border-bottom-0" >
                         <h6 class="fw-semibold mb-0">Prix</h6>
                     </th>
-                    <th class="border-bottom-0" wire:click="sortBy('quantite_en_stock')">
+                    <th class="border-bottom-0" >
                         <h6 class="fw-semibold mb-0">Stock</h6>
                     </th>
-                    <th class="border-bottom-0" wire:click="sortBy('dosage')">
+                    <th class="border-bottom-0" >
                         <h6 class="fw-semibold mb-0">Dosage</h6>
                     </th>
-                    <th class="border-bottom-0" wire:click="sortBy('forme_galenique')">
+                    <th class="border-bottom-0">
                         <h6 class="fw-semibold mb-0">Forme</h6>
                     </th>
-                    <th class="border-bottom-0" wire:click="sortBy('forme_galenique')">
+                    <th class="border-bottom-0" >
                         <h6 class="fw-semibold mb-0">Enregistrement</h6>
                     </th>
                     <th class="border-bottom-0">

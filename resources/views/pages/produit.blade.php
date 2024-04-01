@@ -20,7 +20,7 @@
                   <div class="card-body p-4">
                     <h5 class="card-title fw-semibold mb-4">Medicament Disponible</h5>
                     <div class="mb-3">
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><span><i class="ti ti-plus"></i></span> Nouveau produit</button>
+                        <a href="{{route('produit.create')}}"><button class="btn btn-primary"><span><i class="ti ti-plus"></i></span> Nouveau produit</button></a>
                     </div>
                     <livewire:produit-component/>
                   </div>
@@ -29,8 +29,7 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <livewire:formulaire-produit/>
+
 
 
 @endsection
