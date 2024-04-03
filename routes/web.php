@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('finance', [FinanceController::class, 'index'])->name('finance');
+    Route::get('finance/portefeuille', [FinanceController::class, 'showPortefeuille'])->name('finance.portefeuille');
 
     Route::get('parametres', [ParametreController::class, 'index'])->name('parametre');
     Route::put('parametres/update', [ParametreController::class, 'update'])->name('parametre.update');

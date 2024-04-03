@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commande;
+use App\Models\Portefeuille;
 use Illuminate\Http\Request;
 use App\Models\Vente;
 use Carbon\Carbon;
@@ -16,8 +17,9 @@ class FinanceController extends Controller
         $totalMois = $this->sommeMontantTotalMois();
         $totalTrimestre = $this->sommeMontantTotalTrimestre();
         $totalAnnee = $this->sommeMontantTotalAnnee();
+        $etat_actuelle = $this->etatPorteuille();
 
-        return view('pages.finance', compact('totalJour', 'totalSemaine', 'totalMois', 'totalTrimestre', 'totalAnnee'));
+        return view('pages.finance', compact('totalJour', 'totalSemaine', 'totalMois', 'totalTrimestre', 'totalAnnee', 'etat_actuelle'));
     }
 
     public function sommeMontantTotalJour()
@@ -79,6 +81,23 @@ class FinanceController extends Controller
             ->sum('montant_total');
 
         return $total;
+    }
+
+    public function etatPorteuille(){
+        // Somme des entrées
+        $somme_entrees = Portefeuille::where('type_transaction', 'vente')->sum('montant');
+
+        // Somme des sorties
+        $somme_sorties = Portefeuille::where('type_transaction', 'sortie_caisse')->sum('montant');
+
+        // Différence entre les sommes des entrées et des sorties
+        $etat_portefeuille = $somme_entrees - $somme_sorties;
+
+        return $etat_portefeuille;
+    }
+
+    public function showPortefeuille(){
+        return view('pages.finance-portefeuille');
     }
 
 }

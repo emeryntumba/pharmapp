@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Commande;
 use App\Models\LigneCommande;
+use App\Models\Portefeuille;
 use Livewire\Component;
 use App\Models\Produit;
 use App\Models\StockMovement;
@@ -120,6 +121,12 @@ class FactureComponent extends Component
 
         $cmd->update([
             'montant_total' => $montant_total,
+        ]);
+
+        Portefeuille::create([
+            'montant' => $montant_total,
+            'type_transaction' => 'vente',
+            'raison' => 'Vente, reference facture:'.$cmd->id,
         ]);
 
 
