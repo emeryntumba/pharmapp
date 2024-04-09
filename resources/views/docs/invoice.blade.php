@@ -27,7 +27,7 @@
             padding: 6px;
 
         }
-       
+
         .total {
             font-weight: bold;
         }
@@ -58,12 +58,12 @@
                     <td>{{ $product['produit']->nom }}</td>
                     <td>{{ $product['produit']->prix }} FC</td>
                     <td>{{ $product['quantite'] }}</td>
-                    <td>{{ $product['total'] }} FC</td>
+                    <td>{{ $product['total'] }} {{ session('devise') }}</td>
                 </tr>
                 @endforeach
                 <tr class="total">
                     <td colspan="4" style="text-align: right;">Total général :</td>
-                    <td>{{ $totalGeneral }} FC</td>
+                    <td>{{ $totalGeneral }} {{ session('devise') }}</td>
                 </tr>
             </tbody>
         </table>
