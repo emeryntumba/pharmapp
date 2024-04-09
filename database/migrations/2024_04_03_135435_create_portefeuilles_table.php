@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('portefeuilles', function (Blueprint $table) {
             $table->id();
             $table->decimal('montant', 15, 2); // Montant de la transaction
-            $table->enum('type_transaction', ['vente', 'sortie_caisse']); // Type de transaction
+            $table->enum('type_transaction', ['entree_caisse', 'sortie_caisse']); // Type de transaction
             $table->text('raison')->nullable(); // Raison de la transaction (optionnel)
             $table->timestamps();
         });

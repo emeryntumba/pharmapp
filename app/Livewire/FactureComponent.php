@@ -125,7 +125,7 @@ class FactureComponent extends Component
 
         Portefeuille::create([
             'montant' => $montant_total,
-            'type_transaction' => 'vente',
+            'type_transaction' => 'entree_caisse',
             'raison' => 'Vente, reference facture:'.$cmd->id,
         ]);
 
