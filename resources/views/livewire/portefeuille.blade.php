@@ -25,6 +25,7 @@
 
                 <label for="type_transaction">Type Transaction</label>
                 <select wire:model="type_transaction" id="type_transaction" class="form-select my-2">
+                    <option value="">Sélectionnez le type de transaction</option>
                     <option value="entree_caisse">Entree caisee</option>
                     <option value="sortie_caisse">Sortie caisse</option>
                 </select>
