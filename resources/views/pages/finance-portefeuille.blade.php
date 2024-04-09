@@ -5,11 +5,9 @@
 @section('content')
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-8">
-            Hello portefeuille
-        </div>
-    </div>
+
+    <livewire:portefeuille/>
+
 </div>
 
 @endsection
