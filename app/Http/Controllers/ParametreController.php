@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class ParametreController extends Controller
 {
@@ -15,6 +16,9 @@ class ParametreController extends Controller
     public function update(Request $request){
         $etablissement = Auth::user()->gestionnaire->etablissement;
         $etablissement->update($request->all());
+
+        $devise = Auth::user()->gestionnaire->etablissement->devise;
+        Session::put('devise', $devise);
         return redirect()->back()->with('success-param', 'Mise à jour effectué avec succès');
     }
 }

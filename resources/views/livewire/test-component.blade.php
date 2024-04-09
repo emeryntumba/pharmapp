@@ -56,7 +56,7 @@
                     <tr wire:click="addToInvoice({{ $produit->id }})" >
 
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->nom }}</p></td>
-                        <td class="border-bottom-0"><h6 class="fw-normal mb-0 ">{{ $produit->prix }}FC</h6></td>
+                        <td class="border-bottom-0"><h6 class="fw-normal mb-0 ">{{ $produit->prix }} {{ session('devise') }}</h6></td>
                         <td class="border-bottom-0"><h6 class="fw-normal mb-0">{{$produit->stock_state}}</h6></td>
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->dosage }}</p></td>
                         <td class="border-bottom-0"><p class="mb-0 fw-normal">{{ $produit->forme_galenique }}</p></td>

@@ -59,6 +59,14 @@
                                 </div>
 
                                 <div class="form-group mb-2">
+                                    <label for="devise">Devise Symbole</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="devise"><i class="ti ti-cash"></i></span>
+                                        <input type="text" class="form-control" id="devise" name="devise" value="{{$etablissement->devise}}" aria-label="devise" aria-describedby="devise">
+                                    </div>
+                                </div>
+
+                                <div class="form-group mb-2">
                                   <label for="adresse">Adresse</label>
                                   <div class="input-group">
                                     <span class="input-group-text" id="adr"><i class="ti ti-map-pin"></i></span>

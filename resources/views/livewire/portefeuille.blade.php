@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Total Entrées</h5>
-                    <p class="card-text">{{  $total_entree }}</p>
+                    <p class="card-text">{{  $total_entree }}{{ session('devise') }}</p>
                 </div>
             </div>
         </div>
@@ -13,7 +13,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Total Sorties</h5>
-                    <p class="card-text">{{ $total_sortie }}</p>
+                    <p class="card-text">{{ $total_sortie }} {{ session('devise') }}</p>
                 </div>
             </div>
         </div>

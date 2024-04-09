@@ -29,9 +29,9 @@
 
                         <tr  data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{$ligneCommande->produit->forme_galenique}} de {{$ligneCommande->produit->dosage}}">
                             <td class="border-bottom-0"><p class="mb-0 fs-2">{{ $ligneCommande->produit->nom}}</p></td>
-                            <td class="border-bottom-0"><h6 class=" mb-0 fs-2">{{ $ligneCommande->prix }}FC</h6></td>
-                            <td class="border-bottom-0"><p class="px-2 fs-2">{{$ligneCommande->quantite}}</p></td>
-                            <td class="border-bottom-0"><span class=" mb-0 fs-2" >{{ $ligneCommande->total }}FC</span></td>
+                            <td class="border-bottom-0"><h6 class=" mb-0 fs-2">{{ $ligneCommande->prix }} {{ session('devise') }}</h6></td>
+                            <td class="border-bottom-0"><p class="mb-0 fs-2">{{$ligneCommande->quantite}}</p></td>
+                            <td class="border-bottom-0"><span class=" mb-0 fs-2" >{{ $ligneCommande->total }} {{ session('devise') }}</span></td>
 
                         </tr>
 
@@ -43,7 +43,7 @@
                 </tbody>
 
             </table>
-            <p class="text-right mt-2">Total General: <span class="fw-semibold">{{$facture->montant_total}} FC</span></p>
+            <p class="text-right mt-2">Total General: <span class="fw-semibold">{{$facture->montant_total}} {{ session('devise') }}</span></p>
 
 
         </div>

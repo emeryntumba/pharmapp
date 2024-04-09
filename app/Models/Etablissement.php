@@ -9,7 +9,16 @@ class Etablissement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom_etablissement', 'rccm', 'id_nat', 'num_impot', 'ordre_operation', 'adresse', 'tva'];
+    protected $fillable = [
+                        'nom_etablissement',
+                        'rccm',
+                        'id_nat',
+                        'num_impot',
+                        'ordre_operation',
+                        'adresse',
+                        'tva',
+                        'devise'
+                    ];
 
     public function gestionnaires()
     {

@@ -36,7 +36,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="prix" class="form-label">Prix unitaire:</label>
+                        <label for="prix" class="form-label">Prix unitaire en {{ session('devise') }}:</label>
                         <input type="number" class="form-control" id="prix"  step="50">
                     </div>
 

@@ -28,7 +28,7 @@
 
                         <tr  data-bs-toggle="tooltip" data-bs-placement="bottom" title="{{$product['produit']->forme_galenique}} de {{$product['produit']->dosage}}">
                             <td class="border-bottom-0"><p class="mb-0 fs-2">{{ strlen($product['produit']->nom) > 5 ? substr($product['produit']->nom, 0, 7) . '...' : $product['produit']->nom }}</p></td>
-                            <td class="border-bottom-0"><h6 class=" mb-0 fs-2">{{ $product['produit']->prix }}FC</h6></td>
+                            <td class="border-bottom-0"><h6 class=" mb-0 fs-2">{{ $product['produit']->prix }} {{ session('devise') }}</h6></td>
                             <td class="border-bottom-0"><input type="text" class="form-control px-2 fs-2" wire:model="products.{{ $index }}.quantite" wire:input="recalculerTotal({{ $index }})"></td>
                             <td class="border-bottom-0"><span class=" mb-0 fs-2" >{{ $product['total'] }}FC</span></td>
                             <td class="border-bottom-0"><button class="btn btn-danger fs-2 p-2" wire:click="delete({{$index}})"  wire:confirm="Etes-vous sur de vouloir supprimer ce produit?"><i class="ti ti-trash"></i></button></td>
@@ -44,7 +44,7 @@
                     Pas de valeur
                 @endif
             </table>
-            <p class="text-right mt-2">Total General: <span class="fw-semibold">{{ $totalGeneral }} FC</span></p>
+            <p class="text-right mt-2">Total General: <span class="fw-semibold">{{ $totalGeneral }} {{ session('devise') }}</span></p>
 
 
 

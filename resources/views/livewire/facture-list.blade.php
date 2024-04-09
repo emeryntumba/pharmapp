@@ -74,7 +74,8 @@
                       </td>
 
                       <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-0 fs-4">{{$commande->montant_total}} FC</h6>
+                        <h6 class="fw-semibold mb-0 fs-4">{{ $commande->montant_total }} {{ session('devise') }}
+                        </h6>
                       </td>
 
                       <td class="border-bottom-0">
