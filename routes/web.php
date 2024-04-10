@@ -51,6 +51,9 @@ Route::middleware('auth')->group(function () {
 
     Route::get('parametres', [ParametreController::class, 'index'])->name('parametre');
     Route::put('parametres/update', [ParametreController::class, 'update'])->name('parametre.update');
+
+    Route::get('/chart-data', [IndexController::class, 'recenteVente']);
+
 });
 
 
