@@ -21,27 +21,23 @@
             <!-- Yearly Breakup -->
             <div class="card overflow-hidden">
               <div class="card-body p-4">
-                <h5 class="card-title mb-9 fw-semibold">Yearly Breakup</h5>
+                <h5 class="card-title mb-9 fw-semibold">Total vente mois en cours:</h5>
                 <div class="row align-items-center">
                   <div class="col-8">
-                    <h4 class="fw-semibold mb-3">$36,358</h4>
+                    <h4 class="fw-semibold mb-3" id="moyenne_mois"></h4>
                     <div class="d-flex align-items-center mb-3">
                       <span
                         class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
                         <i class="ti ti-arrow-up-left text-success"></i>
                       </span>
-                      <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                      <p class="fs-3 mb-0">last year</p>
+                      <p class="text-dark me-1 fs-3 mb-0" id="difference"></p>
                     </div>
                     <div class="d-flex align-items-center">
                       <div class="me-4">
                         <span class="round-8 bg-primary rounded-circle me-2 d-inline-block"></span>
-                        <span class="fs-2">2023</span>
+                        <span class="fs-2">{{ now()->year }}</span>
                       </div>
-                      <div>
-                        <span class="round-8 bg-light-primary rounded-circle me-2 d-inline-block"></span>
-                        <span class="fs-2">2023</span>
-                      </div>
+
                     </div>
                   </div>
                   <div class="col-4">
@@ -265,29 +261,102 @@
   <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      axios.get('/chart-data')
-        .then(response => {
-          const data = response.data;
+        axios.get('/chart/sell-evolution')
+            .then(response => {
+            const data = response.data.map(commande => ({
+                x: new Date(commande.date).getTime(),
+                y: commande.total
+            }));
 
-          const options = {
-            chart: {
-              type: 'line',
-            },
-            series: [{
-              name: 'Ventes',
-              data: data
-            }],
-            xaxis: {
-              type: 'datetime'
-            }
-          };
+            const options = {
+                chart: {
+                type: 'line',
+                },
+                series: [{
+                name: 'Ventes',
+                data: data
+                }],
+                xaxis: {
+                type: 'datetime'
+                }
+            };
 
-          const chart = new ApexCharts(document.getElementById('chart'), options);
-          chart.render();
-        })
-        .catch(error => {
-          console.error('Error fetching chart data:', error);
+            const chart = new ApexCharts(document.getElementById('chart'), options);
+            chart.render();
+            })
+            .catch(error => {
+            console.error('Error fetching chart data:', error);
+            });
+
+            axios.get('/chart/moyenne-mois')
+                .then(response => {
+                    const data = response.data;
+                    document.querySelector('#moyenne_mois').innerHTML = data.vente + data.devise;
+                    document.querySelector('#difference').innerHTML = data.difference;
+                })
+
+                .catch(error => {
+                    console.error('Error fetching chart data:', error);
+                });
+
+
+            axios.get('/chart/moyenne-annee')
+                .then(response => {
+                    const data = response.data;
+
+                    const options = {
+                        chart: {
+                            type: 'donut',
+                            width: 180,
+                            fontFamily: "Plus Jakarta Sans', sans-serif",
+                            foreColor: "#adb0bb",
+                        },
+                        series: data.series,
+                        labels: data.labels,
+                        plotOptions: {
+                            pie: {
+                                startAngle: 0,
+                                endAngle: 360,
+                                donut: {
+                                    size: '75%',
+                                },
+                            },
+                        },
+                        stroke: {
+                            show: false,
+                        },
+                        dataLabels: {
+                            enabled: false,
+                        },
+                        legend: {
+                            show: false,
+                        },
+                        colors: ["#5D87FF", "#ecf2ff", "#F9F9FD"],
+                        responsive: [
+                                {
+                                    breakpoint: 991,
+                                    options: {
+                                    chart: {
+                                        width: 150,
+                                    },
+                                    },
+                                },
+                        ],
+                        tooltip: {
+                            theme: "dark",
+                            fillSeriesColor: false,
+                        },
+                    };
+
+                const chart = new ApexCharts(document.querySelector("#breakup"), options);
+                chart.render();
+                })
+                .catch(error => {
+                    console.error('Error fetching chart data:', error);
+                });
+
         });
-    });
   </script>
+
+
 @endpush
