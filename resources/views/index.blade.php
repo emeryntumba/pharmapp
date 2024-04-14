@@ -26,9 +26,9 @@
                   <div class="col-8">
                     <h4 class="fw-semibold mb-3" id="moyenne_mois"></h4>
                     <div class="d-flex align-items-center mb-3">
-                      <span
-                        class="me-1 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-arrow-up-left text-success"></i>
+                      <span id="icon"
+                        class="me-1 rounded-circle  round-20 d-flex align-items-center justify-content-center">
+                        <i class="ti "></i>
                       </span>
                       <p class="text-dark me-1 fs-3 mb-0" id="difference"></p>
                     </div>
@@ -292,7 +292,19 @@
                 .then(response => {
                     const data = response.data;
                     document.querySelector('#moyenne_mois').innerHTML = data.vente + data.devise;
-                    document.querySelector('#difference').innerHTML = data.difference;
+                    document.querySelector('#difference').innerHTML = data.difference + "%";
+                    const iconElement = document.querySelector('#icon');
+                    if (data.difference > 0) {
+                        iconElement.classList.remove('bg-light-danger');
+                        iconElement.classList.add('bg-light-success');
+                        iconElement.querySelector('i').classList.remove('ti-arrow-down-left', 'text-danger');
+                        iconElement.querySelector('i').classList.add('ti-arrow-up-left', 'text-success');
+                    } else if (data.difference < 0) {
+                        iconElement.classList.remove('bg-light-success');
+                        iconElement.classList.add('bg-light-danger');
+                        iconElement.querySelector('i').classList.remove('ti-arrow-up-left', 'text-success');
+                        iconElement.querySelector('i').classList.add('ti-arrow-down-left', 'text-danger');
+                    }
                 })
 
                 .catch(error => {

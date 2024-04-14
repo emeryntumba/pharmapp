@@ -54,12 +54,11 @@ class IndexController extends Controller
         // Formater la moyenne et le pourcentage de variation
         $moyenne = number_format($vente_mois_en_cours, 2, '.', ' ');
         $pourcentage_variation_format = number_format($pourcentage_variation, 2, '.', ' ');
-        $color = $pourcentage_variation >= 0 ? 'success' : 'danger';
+
         // Retourner les données au format JSON
         return response()->json([
             'vente' => $moyenne,
             'difference' => $pourcentage_variation_format,
-            'color' => $color,
             'devise' => session('devise'),
         ]);
     }
