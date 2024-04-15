@@ -10,7 +10,7 @@
                 <div class="card w-100">
                   <div class="card-body p-4">
                     <h5 class="card-title fw-semibold mb-4">Medicament Disponible</h5>
-                    <livewire:test-component/>
+                    <livewire:produit-table/>
                   </div>
                 </div>
               </div>
