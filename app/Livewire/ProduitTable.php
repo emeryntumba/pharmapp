@@ -6,7 +6,7 @@ use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Produit;
 
-class TestComponent extends Component
+class ProduitTable extends Component
 {
 
 
@@ -31,7 +31,7 @@ class TestComponent extends Component
             ->take($this->afficher)
             ->get();
         }
-        return view('livewire.test-component', compact('produits'));
+        return view('livewire.produit-table', compact('produits'));
     }
 
     public function sortBy($field)

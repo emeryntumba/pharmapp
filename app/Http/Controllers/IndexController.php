@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commande;
-use App\Models\LigneCommande;
-use App\Models\Produit;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
