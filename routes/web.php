@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::put('parametres/update', [ParametreController::class, 'update'])->name('parametre.update');
 
     Route::get('chart/sell-evolution', [IndexController::class, 'recenteVente']);
-    Route::get('chart/mostselled', [IndexController::class, 'getMostSelled']);
+    Route::get('chart/mostselled', [IndexController::class, 'mostselled']);
     Route::get('chart/moyenne-annee', [IndexController::class, 'getAllVenteAnnee']);
     Route::get('chart/moyenne-mois', [IndexController::class, 'totalVenteMois']);
 });

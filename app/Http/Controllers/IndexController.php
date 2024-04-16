@@ -91,9 +91,9 @@ class IndexController extends Controller
 
     public function mostSelled(){
         $produit_plus_vendu = Produit::select('produits.nom',
-                DB::raw('SUM(lignes_commande.quantite) as total_vendu'))
-                ->join('lignes_commande', 'produits.id', '=',
-                'lignes_commande.produit_id')
+                DB::raw('SUM(ligne_commandes.quantite) as total_vendu'))
+                ->join('ligne_commandes', 'produits.id', '=',
+                'ligne_commandes.produit_id')
                 ->groupBy('produits.nom')
                 ->orderByDesc('total_vendu')
                 ->first();
@@ -105,7 +105,8 @@ class IndexController extends Controller
 
         return response()->json([
             'produit' => $nom_produit,
-            'quantite' => $total_vendu
+            'quantite' => $total_vendu,
+            'evolution' => 'coming soon'
         ]);
     }
 

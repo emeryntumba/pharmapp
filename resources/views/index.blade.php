@@ -55,15 +55,15 @@
               <div class="card-body">
                 <div class="row alig n-items-start">
                   <div class="col-8">
-                    <h5 class="card-title mb-9 fw-semibold"> Monthly Earnings </h5>
-                    <h4 class="fw-semibold mb-3">$6,820</h4>
+                    <h5 class="card-title mb-9 fw-semibold"> Produit le plus vendu</h5>
+                    <h4 class="fw-semibold mb-3" id="mostselled">product.name</h4>
                     <div class="d-flex align-items-center pb-1">
                       <span
-                        class="me-2 rounded-circle bg-light-danger round-20 d-flex align-items-center justify-content-center">
-                        <i class="ti ti-arrow-down-right text-danger"></i>
+                        class="me-2 rounded-circle bg-light-success round-20 d-flex align-items-center justify-content-center">
+                        <i class="ti ti-arrow-up-left text-success"></i>
                       </span>
-                      <p class="text-dark me-1 fs-3 mb-0">+9%</p>
-                      <p class="fs-3 mb-0">last year</p>
+                      <p class="text-dark me-1 fs-3 mb-0" id="selled_quantity"></p>
+                      <p class="fs-3 mb-0">unités vendues</p>
                     </div>
                   </div>
                   <div class="col-4">
@@ -310,6 +310,12 @@
                 .catch(error => {
                     console.error('Error fetching chart data:', error);
                 });
+            axios.get('/chart/mostselled')
+                .then(response => {
+                    const data = response.data;
+                    document.querySelector('#mostselled').innerHTML = data.produit;
+                    document.querySelector('#selled_quantity').innerHTML = data.quantite;
+                })
 
 
             axios.get('/chart/moyenne-annee')
