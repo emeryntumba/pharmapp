@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Commande;
+use App\Models\Produit;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -64,28 +65,48 @@ class IndexController extends Controller
 
     public function getAllVenteAnnee(){
         // Déterminer l'année en cours
-    $annee_en_cours = Carbon::now()->year;
+        $annee_en_cours = Carbon::now()->year;
 
-    // Initialiser un tableau pour stocker la somme des ventes par mois
-    $somme_vente_par_mois = [];
+        // Initialiser un tableau pour stocker la somme des ventes par mois
+        $somme_vente_par_mois = [];
 
-    // Boucler sur chaque mois de l'année en cours
-    for ($mois = 1; $mois <= 12; $mois++) {
-        // Calculer la somme des ventes pour le mois actuel
-        $somme_vente = Commande::whereYear('updated_at', $annee_en_cours)
-            ->whereMonth('updated_at', $mois)
-            ->sum('montant_total');
+        // Boucler sur chaque mois de l'année en cours
+        for ($mois = 1; $mois <= 12; $mois++) {
+            // Calculer la somme des ventes pour le mois actuel
+            $somme_vente = Commande::whereYear('updated_at', $annee_en_cours)
+                ->whereMonth('updated_at', $mois)
+                ->sum('montant_total');
 
-        // Ajouter la somme des ventes au tableau, en utilisant le nom du mois comme clé
-        $nom_mois = Carbon::create($annee_en_cours, $mois, 1)->monthName;
-        $somme_vente_par_mois[$nom_mois] = $somme_vente;
-    }
+            // Ajouter la somme des ventes au tableau, en utilisant le nom du mois comme clé
+            $nom_mois = Carbon::create($annee_en_cours, $mois, 1)->monthName;
+            $somme_vente_par_mois[$nom_mois] = $somme_vente;
+        }
 
     // Retourner les données dans le format requis
-    return response()->json([
-        'series' => array_values($somme_vente_par_mois),
-        'labels' => array_keys($somme_vente_par_mois)
-    ]);
+        return response()->json([
+            'series' => array_values($somme_vente_par_mois),
+            'labels' => array_keys($somme_vente_par_mois)
+        ]);
+    }
+
+    public function mostSelled(){
+        $produit_plus_vendu = Produit::select('produits.nom',
+                DB::raw('SUM(lignes_commande.quantite) as total_vendu'))
+                ->join('lignes_commande', 'produits.id', '=',
+                'lignes_commande.produit_id')
+                ->groupBy('produits.nom')
+                ->orderByDesc('total_vendu')
+                ->first();
+
+        if ($produit_plus_vendu){
+            $nom_produit = $produit_plus_vendu->nom;
+            $total_vendu = $produit_plus_vendu->total_vendu;
+        }
+
+        return response()->json([
+            'produit' => $nom_produit,
+            'quantite' => $total_vendu
+        ]);
     }
 
 
