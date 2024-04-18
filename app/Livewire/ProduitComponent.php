@@ -5,42 +5,28 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Produit;
 use Livewire\Attributes\On;
+use Livewire\WithPagination;
 
 
-class ProduitComponent extends Component
-{
+class ProduitComponent extends Component{
+
+    use WithPagination;
 
     public $search = '';
-    public $afficher;
-    public $produits;
+    public $afficher = 10;
+    public $selectedElements = [];
 
-    public function mount(){
+    public function render(){
 
-        $this->afficher = 10;
-        $this->produits = Produit::query()
+        $produits = Produit::query()
             ->where('nom', 'like', '%' . $this->search . '%')
             ->orderBy('created_at', 'desc')
-            ->take($this->afficher)
-            ->get();
-    }
-
-    public function render()
-    {
-        if ($this->afficher == "all"){
-            $this->produits = Produit::orderBy('created_at', 'desc')
-            ->where('nom', 'like', '%' . $this->search . '%')
-            ->get();
-
-        }else{
-            $this->produits = Produit::query()
-            ->where('nom', 'like', '%' . $this->search . '%')
-            ->orderBy('created_at', 'desc')
-            ->take($this->afficher)
-            ->get();
-        }
+            ->paginate($this->afficher);
 
 
-        return view('livewire.produit-component');
+        return view('livewire.produit-component', [
+            'produits' => $produits
+        ]);
     }
 
     public function delete($id){
@@ -52,9 +38,17 @@ class ProduitComponent extends Component
         }
     }
 
-    #[On('products-refreshed')]
+    /*#[On('products-refreshed')]
     public function refreshList(){
         $this->produits = Produit::all();
+    }*/
+
+    public function deleteSelected()
+    {
+        if (!empty($this->selectedElements)) {
+            Produit::whereIn('id', $this->selectedElements)->delete();
+            $this->selectedElements = [];
+        }
     }
 
     public function showDetails($id){
