@@ -57,15 +57,3 @@ Route::middleware('auth')->group(function () {
     Route::get('chart/moyenne-annee', [IndexController::class, 'getAllVenteAnnee']);
     Route::get('chart/moyenne-mois', [IndexController::class, 'totalVenteMois']);
 });
-
-
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
