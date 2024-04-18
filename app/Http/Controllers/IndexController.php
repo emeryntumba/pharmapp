@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Commande;
 use App\Models\Produit;
+use App\Models\StockMovement;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,12 @@ class IndexController extends Controller
     public function index(){
         $devise = Auth::user()->gestionnaire->etablissement->devise;
         Session::put('devise', $devise);
-        return view('index');
+
+        $movements = StockMovement::latest()->limit(4)->get();
+
+        return view('index', [
+            'movements' => $movements
+        ]);
     }
 
     public function recenteVente(){
