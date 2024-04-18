@@ -53,7 +53,7 @@
             <!-- Monthly Earnings -->
             <div class="card">
               <div class="card-body">
-                <div class="row alig n-items-start">
+                <div class="row align-items-start">
                   <div class="col-8">
                     <h5 class="card-title mb-9 fw-semibold"> Produit le plus vendu</h5>
                     <h4 class="fw-semibold mb-3" id="mostselled">product.name</h4>
@@ -76,7 +76,6 @@
                   </div>
                 </div>
               </div>
-              <div id="earning"></div>
             </div>
           </div>
         </div>
