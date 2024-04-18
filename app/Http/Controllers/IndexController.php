@@ -17,9 +17,11 @@ class IndexController extends Controller
         Session::put('devise', $devise);
 
         $movements = StockMovement::latest()->limit(4)->get();
+        $factures = Commande::latest()->limit(5)->get();
 
         return view('index', [
-            'movements' => $movements
+            'movements' => $movements,
+            'factures' => $factures,
         ]);
     }
 
