@@ -9,7 +9,12 @@ class Gestionnaire extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nom', 'prenom', 'telephone'];
+    protected $fillable = [
+        'nom','
+        telephone',
+        'etablissement_id',
+        'user_id'
+    ];
 
     public function user()
     {

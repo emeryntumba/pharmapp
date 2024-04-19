@@ -38,19 +38,26 @@
                 <form method="POST" action="{{ url('/register') }}">
                     @csrf
                   <div class="mb-3">
-                    <label for="exampleInputtext1" class="form-label">Nom</label>
+                    <label for="exampleInputtext1" class="form-label">Nom du gestionnaire principal <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="name" required>
                   </div>
+
                   <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <label for="exampleInputEmail1" class="form-label">Email<span class="text-danger">*</span></label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
                   </div>
+
+                  <div class="mb-3">
+                    <label for="exampleInputtext1" class="form-label">Telephone</label>
+                    <input type="tel" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="telephone">
+                  </div>
+
                   <div class="mb-4">
-                    <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                    <label for="exampleInputPassword1" class="form-label">Mot de passe<span class="text-danger">*</span></label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
                   </div>
                   <div class="mb-4">
-                    <label for="exampleInputPassword" class="form-label">Confirmer le mot de passe</label>
+                    <label for="exampleInputPassword" class="form-label">Confirmer le mot de passe<span class="text-danger">*</span></label>
                     <input type="password" class="form-control" id="exampleInputPassword" name="password_confirmation" required>
                   </div>
                   <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Créer votre compte</button>

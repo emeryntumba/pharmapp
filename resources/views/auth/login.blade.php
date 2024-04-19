@@ -52,7 +52,7 @@
                   <button class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Se connecter</button>
                   <div class="d-flex align-items-center justify-content-center">
                     <p class="fs-4 mb-0 fw-bold">Nouveau dans le coin?</p>
-                    <a class="text-primary fw-bold ms-2" href="{{ url('/register') }}">Créer un compte</a>
+                    <a class="text-primary fw-bold ms-2" href="{{ route('etablissement.create') }}">Créer un compte</a>
                   </div>
                 </form>
               </div>

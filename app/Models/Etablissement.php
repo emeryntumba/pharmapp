@@ -15,9 +15,9 @@ class Etablissement extends Model
                         'id_nat',
                         'num_impot',
                         'ordre_operation',
-                        'adresse',
                         'tva',
-                        'devise'
+                        'devise',
+                        'adresse',
                     ];
 
     public function gestionnaires()
