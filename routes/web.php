@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EtablissementController;
 use App\Http\Controllers\FactureController;
 use App\Http\Controllers\FinanceController;
 use Illuminate\Support\Facades\Route;
@@ -59,13 +60,5 @@ Route::middleware('auth')->group(function () {
 });
 
 
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+Route::get('/etablissement/register', [EtablissementController::class, 'create'])->name('etablissement.create');
+Route::post('/etablissement/register/post', [EtablissementController::class, 'store'])->name('etablissement.store');
