@@ -5,11 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Commande;
 use App\Models\Portefeuille;
 use Illuminate\Http\Request;
-use App\Models\Vente;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class FinanceController extends Controller
 {
+    public $etablissement;
+
+    public function boot():void
+    {
+        $this->etablissement = Auth::user()->gestionnaire->etablissement->id;
+    }
     public function index(){
 
         $totalJour = $this->sommeMontantTotalJour();
@@ -24,7 +30,7 @@ class FinanceController extends Controller
 
     public function sommeMontantTotalJour()
     {
-        $total = Commande::whereDate('updated_at', now()->toDateString())
+        $total = Commande::where('etablissement_id', $this->etablissement)->whereDate('updated_at', now()->toDateString())
             ->sum('montant_total');
 
         return $total;
@@ -35,14 +41,16 @@ class FinanceController extends Controller
         $dateDebutSemaine = Carbon::now()->startOfWeek()->toDateString();
         $dateFinSemaine = Carbon::now()->endOfWeek()->toDateString();
 
-        $total = Commande::whereBetween('updated_at', [$dateDebutSemaine, $dateFinSemaine])
+        $total = Commande::where('etablissement_id', $this->etablissement)
+                        ->whereBetween('updated_at', [$dateDebutSemaine, $dateFinSemaine])
                         ->sum('montant_total');
         return $total;
     }
 
     public function sommeMontantTotalMois()
     {
-        $total = Commande::whereMonth('updated_at', now()->month)
+        $total = Commande::where('etablissement_id', $this->etablissement)
+                        ->whereMonth('updated_at', now()->month)
                         ->whereYear('updated_at', now()->year)
                         ->sum('montant_total');
         return $total;
@@ -53,7 +61,7 @@ class FinanceController extends Controller
         $trimestreDebut = now()->startOfQuarter()->toDateString();
         $trimestreFin = now()->endOfQuarter()->toDateString();
 
-        $total = Commande::whereBetween('updated_at', [$trimestreDebut, $trimestreFin])
+        $total = Commande::where('etablissement_id', $this->etablissement)->whereBetween('updated_at', [$trimestreDebut, $trimestreFin])
             ->sum('montant_total');
 
         return $total;
@@ -61,7 +69,8 @@ class FinanceController extends Controller
 
     public function sommeMontantTotalAnnee()
     {
-        $total =Commande::whereYear('updated_at', now()->year)
+        $total =Commande::where('etablissement_id', $this->etablissement)
+                        ->whereYear('updated_at', now()->year)
                         ->sum('montant_total');
         return $total;
     }
@@ -77,8 +86,9 @@ class FinanceController extends Controller
         $start_date = Carbon::parse($request->start_date)->startOfDay();
         $end_date = Carbon::parse($request->end_date)->endOfDay();
 
-        $total = Commande::whereBetween('updated_at', [$start_date, $end_date])
-            ->sum('montant_total');
+        $total = Commande::where('etablissement_id', $this->etablissement)
+                        ->whereBetween('updated_at', [$start_date, $end_date])
+                        ->sum('montant_total');
 
         return $total;
     }
