@@ -28,7 +28,7 @@
 
     </div>
 
-    @if (count($produits) != 0)
+    @if (count($produits) !== 0)
     <div class="table-responsive">
         <table class="table table-hover text-nowrap mb-0 align-middle ">
             <thead class="text-dark fs-4 ">
@@ -67,7 +67,9 @@
 
     </div>
     @else
-    Pas de résultat
+    <div class="card-body p-4 text-center">
+        <h5 class="card-title fw-semibold mb-4">Pas de données trouvé, pensez à enregistrer vos produits :)</h5>
+    </div>
 
     @endif
 

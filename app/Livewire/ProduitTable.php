@@ -5,12 +5,9 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use App\Models\Produit;
+use Illuminate\Support\Facades\Auth;
 
-class ProduitTable extends Component
-{
-
-
-
+class ProduitTable extends Component{
     public $search = '';
     public $sortField = 'id';
     public $sortDirection = 'asc';
@@ -19,19 +16,24 @@ class ProduitTable extends Component
 
     public function render()
     {
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         if ($this->afficher == "all"){
-            $produits = $this->produits = Produit::orderBy($this->sortField, $this->sortDirection)
+            $produits = $this->produits = Produit::where('etablissement_id', $etablissement)
+            ->orderBy($this->sortField, $this->sortDirection)
             ->where('nom', 'like', '%' . $this->search . '%')
             ->get();
 
         }else{
             $produits = $this->produits = Produit::query()
+            ->where('etablissement_id', $etablissement)
             ->where('nom', 'like', '%' . $this->search . '%')
             ->orderBy($this->sortField, $this->sortDirection)
             ->take($this->afficher)
             ->get();
         }
-        return view('livewire.produit-table', compact('produits'));
+        return view('livewire.produit-table', [
+            'produits' => $produits
+        ]);
     }
 
     public function sortBy($field)
@@ -51,6 +53,7 @@ class ProduitTable extends Component
 
     #[On('stock-refreshed')]
     public function refreshStock(){
-        $this->produits = Produit::all();
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        $this->produits = Produit::where('etablissement_id', $etablissement);
     }
 }
