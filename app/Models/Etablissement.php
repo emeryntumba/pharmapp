@@ -28,4 +28,8 @@ class Etablissement extends Model
     public function produits(){
         return $this->hasMany(Produit::class);
     }
+
+    public function commandes(){
+        return $this->hasMany(Commande::class);
+    }
 }

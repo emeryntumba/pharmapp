@@ -14,9 +14,13 @@ class FactureDetail extends Component
     public $ligneCommandes;
 
     public function mount(){
-        $this->facture = Commande::latest()->first();
-        $this->ligneCommandes = $this->facture->ligneCommandes;
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        $this->facture = Commande::where('etablissement_id', $etablissement)->latest()->first();
+        if($this->facture !== null){
+            $this->ligneCommandes = $this->facture->ligneCommandes;
+        }
     }
+
 
     public function render()
     {
@@ -26,7 +30,11 @@ class FactureDetail extends Component
     #[On('item-clicked')]
     public function onListen($data){
         $this->facture = Commande::findOrFail($data);
-        $this->ligneCommandes = $this->facture->ligneCommandes;
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        if($this->facture->etablissement_id == $etablissement){
+            $this->ligneCommandes = $this->facture->ligneCommandes;
+        }
+
     }
 
     public function print(){

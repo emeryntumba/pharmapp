@@ -30,4 +30,8 @@ class Commande extends Model
     public function gestionnaire(){
         return $this->belongsTo(Gestionnaire::class);
     }
+
+    public function etablissement(){
+        return $this->belongsTo(Etablissement::class);
+    }
 }

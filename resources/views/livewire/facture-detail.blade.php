@@ -1,5 +1,6 @@
 <div class="position-sticky top-0 card d-flex align-items-stretch">
     <div class="card-body">
+      @if ($facture !== null)
       <h5 class="card-title fw-semibold mb-4">Facture N°{{$facture->id}}</h5>
       <div class="col-md-12">
         <div class="table-responsive">
@@ -49,6 +50,10 @@
         </div>
 
     </div>
+    @else
+        <h5>Pas de facture enregistrée</h5>
+    @endif
+
 
     </div>
     <button class="btn btn-primary m-3 mt-0" wire:click="print()">Imprimer</button>

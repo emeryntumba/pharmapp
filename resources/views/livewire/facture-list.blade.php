@@ -96,7 +96,9 @@
           </div>
         </div>
         @else
-            <p class="text-center m-3">Pas d'infos</p>
+        <div class="card-body p-4">
+            <h5 class="card-title fw-semibold mb-4">Aucune facture trouvée, veuillez enregistrée une vente</h5>
+        </div>
         @endif
       </div>
 
