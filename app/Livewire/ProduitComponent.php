@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Produit;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\WithPagination;
 
@@ -17,8 +18,9 @@ class ProduitComponent extends Component{
     public $selectedElements = [];
 
     public function render(){
-
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         $produits = Produit::query()
+            ->where('etablissement_id', $etablissement)
             ->where('nom', 'like', '%' . $this->search . '%')
             ->orderBy('created_at', 'desc')
             ->paginate($this->afficher);

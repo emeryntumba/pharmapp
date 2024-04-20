@@ -100,7 +100,7 @@
 
                 </div>
                 @else
-                Pas de résultat
+                Pas de données
 
                 @endif
 
