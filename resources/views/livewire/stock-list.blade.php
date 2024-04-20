@@ -1,5 +1,5 @@
 <div class="card w-100">
-    @if($stocks)
+    @if(count($stocks) !== 0)
     <div class="card-body p-4">
       <h5 class="card-title fw-semibold mb-4">Mouvements du stock</h5>
       <div class="table-responsive ">
@@ -67,6 +67,8 @@
       </div>
     </div>
     @else
-        <p>Pas de factures enregistrées</p>
+    <div class="card-body p-4 text-center">
+        <h5 class="card-title fw-semibold mb-4">Pas de mouvement de stock enregistré !</h5>
+    </div>
     @endif
   </div>
