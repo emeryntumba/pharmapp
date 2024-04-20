@@ -63,8 +63,10 @@
                 <div class="mb-3">
                     <label for="date" class="form-label">Date Peremption:</label>
                     <input type="date" class="form-control" id="date" name="date_peremption" required>
-
+                    <input type="text" value="{{ auth()->user()->gestionnaire->etablissement->id }}" class="form-control" id="" name="etablissement_id" hidden>
                 </div>
+
+
 
                 <div class="modal-footer" >
                     <a href="{{route('produit')}}"><button type="button" class="btn">Annuler</button></a>

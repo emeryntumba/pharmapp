@@ -24,4 +24,8 @@ class Etablissement extends Model
     {
         return $this->hasMany(Gestionnaire::class);
     }
+
+    public function produits(){
+        return $this->hasMany(Produit::class);
+    }
 }

@@ -11,6 +11,7 @@ class Produit extends Model
     use HasFactory;
 
     protected $fillable = [
+                    'etablissement_id',
                     'nom',
                     'forme_galenique',
                     'dosage',
@@ -38,6 +39,9 @@ class Produit extends Model
         $sorties = $this->stockMovements()->where('movement_type', 'out')->sum('quantite');
 
         return $entrees - $sorties;
+    }
+    public function etablissement(){
+        return $this->belongsTo(Etablissement::class);
     }
 
 }
