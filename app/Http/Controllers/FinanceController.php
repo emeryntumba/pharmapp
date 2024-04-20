@@ -10,12 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class FinanceController extends Controller
 {
-    public $etablissement;
-
-    public function boot():void
-    {
-        $this->etablissement = Auth::user()->gestionnaire->etablissement->id;
-    }
     public function index(){
 
         $totalJour = $this->sommeMontantTotalJour();
@@ -25,12 +19,20 @@ class FinanceController extends Controller
         $totalAnnee = $this->sommeMontantTotalAnnee();
         $etat_actuelle = $this->etatPorteuille();
 
-        return view('pages.finance', compact('totalJour', 'totalSemaine', 'totalMois', 'totalTrimestre', 'totalAnnee', 'etat_actuelle'));
+        return view('pages.finance', [
+            'totalJour' => $totalJour,
+            'totalSemaine' => $totalSemaine,
+            'totalMois' => $totalMois,
+            'totalTrimestre' => $totalTrimestre,
+            'totalAnnee' => $totalAnnee,
+            'etat_actuelle' => $etat_actuelle,
+        ]);
     }
 
     public function sommeMontantTotalJour()
     {
-        $total = Commande::where('etablissement_id', $this->etablissement)->whereDate('updated_at', now()->toDateString())
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        $total = Commande::where('etablissement_id', $etablissement)->whereDate('updated_at', now()->toDateString())
             ->sum('montant_total');
 
         return $total;
@@ -38,10 +40,11 @@ class FinanceController extends Controller
 
     public function sommeMontantTotalSemaine()
     {
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         $dateDebutSemaine = Carbon::now()->startOfWeek()->toDateString();
         $dateFinSemaine = Carbon::now()->endOfWeek()->toDateString();
 
-        $total = Commande::where('etablissement_id', $this->etablissement)
+        $total = Commande::where('etablissement_id', $etablissement)
                         ->whereBetween('updated_at', [$dateDebutSemaine, $dateFinSemaine])
                         ->sum('montant_total');
         return $total;
@@ -49,7 +52,8 @@ class FinanceController extends Controller
 
     public function sommeMontantTotalMois()
     {
-        $total = Commande::where('etablissement_id', $this->etablissement)
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        $total = Commande::where('etablissement_id', $etablissement)
                         ->whereMonth('updated_at', now()->month)
                         ->whereYear('updated_at', now()->year)
                         ->sum('montant_total');
@@ -57,11 +61,11 @@ class FinanceController extends Controller
     }
 
     public function sommeMontantTotalTrimestre(){
-
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         $trimestreDebut = now()->startOfQuarter()->toDateString();
         $trimestreFin = now()->endOfQuarter()->toDateString();
 
-        $total = Commande::where('etablissement_id', $this->etablissement)->whereBetween('updated_at', [$trimestreDebut, $trimestreFin])
+        $total = Commande::where('etablissement_id', $etablissement)->whereBetween('updated_at', [$trimestreDebut, $trimestreFin])
             ->sum('montant_total');
 
         return $total;
@@ -69,7 +73,8 @@ class FinanceController extends Controller
 
     public function sommeMontantTotalAnnee()
     {
-        $total =Commande::where('etablissement_id', $this->etablissement)
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        $total =Commande::where('etablissement_id', $etablissement)
                         ->whereYear('updated_at', now()->year)
                         ->sum('montant_total');
         return $total;
@@ -77,7 +82,8 @@ class FinanceController extends Controller
 
     public function sommeMontantTotalPeriodePersonnalisee(Request $request)
     {
-        // Valider les données de la requête
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+
         $request->validate([
             'start_date' => 'required|date',
             'end_date' => 'required|date|after_or_equal:start_date',
@@ -86,7 +92,7 @@ class FinanceController extends Controller
         $start_date = Carbon::parse($request->start_date)->startOfDay();
         $end_date = Carbon::parse($request->end_date)->endOfDay();
 
-        $total = Commande::where('etablissement_id', $this->etablissement)
+        $total = Commande::where('etablissement_id', $etablissement)
                         ->whereBetween('updated_at', [$start_date, $end_date])
                         ->sum('montant_total');
 
@@ -94,11 +100,12 @@ class FinanceController extends Controller
     }
 
     public function etatPorteuille(){
-        // Somme des entrées
-        $somme_entrees = Portefeuille::where('type_transaction', 'vente')->sum('montant');
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        $somme_entrees = Portefeuille::where('etablissement_id', $etablissement)
+        ->where('type_transaction', 'entree_caisse')->sum('montant');
 
-        // Somme des sorties
-        $somme_sorties = Portefeuille::where('type_transaction', 'sortie_caisse')->sum('montant');
+        $somme_sorties = Portefeuille::where('etablissement_id', $etablissement)
+        ->where('type_transaction', 'sortie_caisse')->sum('montant');
 
         // Différence entre les sommes des entrées et des sorties
         $etat_portefeuille = $somme_entrees - $somme_sorties;

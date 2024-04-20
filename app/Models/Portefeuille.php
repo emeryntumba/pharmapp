@@ -13,5 +13,10 @@ class Portefeuille extends Model
         'montant',
         'type_transaction',
         'raison',
+        'etablissement_id',
     ];
+
+    public function etablissement(){
+        return $this->belongsTo(Etablissement::class);
+    }
 }

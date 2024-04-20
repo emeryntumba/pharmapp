@@ -36,4 +36,8 @@ class Etablissement extends Model
     public function stockMovements(){
         return $this->hasMany(StockMovement::class);
     }
+
+    public function portefeuilless(){
+        return $this->hasMany(Portefeuille::class);
+    }
 }
