@@ -106,7 +106,7 @@
             </ul>
           </div>
 
-        <div class="text-center mb-3">
+        <div class="text-center mt-5 mb-4">
             <a href="{{route('facture')}}" class="text-primary">Voir plus...</a>
         </div>
 
