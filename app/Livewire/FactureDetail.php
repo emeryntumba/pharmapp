@@ -38,18 +38,18 @@ class FactureDetail extends Component
     }
 
     public function print(){
-        $pdf = Pdf::loadView('docs.invoice', [
-            'products'=>$this->ligneCommandes,
-            'totalGeneral'=>$this->facture->montant_total,
-            'commande'=>$this->facture,
-            'etablissement'=> Auth::user()->gestionnaire->etablissement,
-        ]);
+        if ($this->ligneCommandes !== null){
+            $pdf = Pdf::loadView('docs.invoice', [
+                'products'=>$this->ligneCommandes,
+                'totalGeneral'=>$this->facture->montant_total,
+                'commande'=>$this->facture,
+                'etablissement'=> Auth::user()->gestionnaire->etablissement,
+            ]);
 
-        return response()->streamDownload(function () use ($pdf) {
-            echo $pdf->stream();
-            }, 'invoice.pdf');
-
-
+            return response()->streamDownload(function () use ($pdf) {
+                echo $pdf->stream();
+                }, 'invoice.pdf');
+        }
     }
 
 
