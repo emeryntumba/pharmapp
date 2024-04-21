@@ -18,7 +18,7 @@
       <div class="d-flex align-items-center justify-content-center w-100">
         <div class="row justify-content-center w-100">
           <div class="col-md-12 col-lg-6">
-            <div class="card mb-0">
+            <div class="card my-2">
               <div class="card-body">
                 <a href="{{ route('index') }}" class="text-nowrap logo-img text-center d-block py-3 w-100">
                   <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
@@ -38,7 +38,7 @@
                 <form method="POST" action="{{ route('etablissement.store') }}">
                     @csrf
                   <div class="row">
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="mb-3">
                             <label for="exampleInputtext1" class="form-label">Nom de l'Etablissement<span class="text-danger"> *</span></label>
                             <input type="text" class="form-control" id="exampleInputtext1" aria-describedby="textHelp" name="nom_etablissement" required>
@@ -55,7 +55,7 @@
                           </div>
                     </div>
 
-                    <div class="col">
+                    <div class="col-md-6">
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="form-label">RCCM</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="rccm">
