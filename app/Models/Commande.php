@@ -13,6 +13,8 @@ class Commande extends Model
         'client_id',
         'montant_total',
         'mode_paiement',
+        'gestionnaire_id',
+        'etablissement_id'
     ];
 
     public function produit(){

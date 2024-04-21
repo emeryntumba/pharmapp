@@ -89,11 +89,14 @@ class FactureComponent extends Component
     }
 
     public function save(){
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         $montant_total = 0;
 
         $cmd =  Commande::create([
             'client_id' => 1,
             'mode_paiement' => 'cash',
+            'etablissement_id' => $etablissement,
+            'gestionnaire_id' => Auth::user()->gestionnaire->id,
         ]);
 
         foreach ($this->products as $product) {
@@ -115,6 +118,7 @@ class FactureComponent extends Component
                     'quantite' => $product['quantite'],
                     'movement_type' => 'out',
                     'motif' => 'vente',
+                    'etablissement_id' => $etablissement,
                 ]
             );
         }
@@ -127,6 +131,7 @@ class FactureComponent extends Component
             'montant' => $montant_total,
             'type_transaction' => 'entree_caisse',
             'raison' => 'Vente, reference facture:'.$cmd->id,
+            'etablissement_id' => $etablissement,
         ]);
 
 

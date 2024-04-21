@@ -46,7 +46,7 @@ class ProduitController extends Controller
         $etablissement = Auth::user()->gestionnaire->etablissement->id;
         if ($produit->etablissement_id == $etablissement){
             $produit->update($request->all());
-            
+
             if($request->qte !== null){
                 StockMovement::create(
                     [
@@ -77,7 +77,8 @@ class ProduitController extends Controller
                 'produit_id' => $produit->id,
                 'quantite' => request('qte'),
                 'movement_type' => 'in',
-                'motif' => 'approvisionnement'
+                'motif' => 'approvisionnement',
+                'etablissement_id' => $request->etablissement_id,
             ]
         );
         return redirect()

@@ -15,6 +15,7 @@ class StockMovement extends Model
         'movement_type',
         'user_id',
         'motif',
+        'etablissement_id',
     ];
 
     public function produit(){
