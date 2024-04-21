@@ -106,9 +106,11 @@
             </ul>
           </div>
 
+        @if (count($factures) > 4)
         <div class="text-center mt-5 mb-4">
             <a href="{{route('facture')}}" class="text-primary">Voir plus...</a>
         </div>
+        @endif
 
         </div>
       </div>
@@ -167,9 +169,11 @@
 
                 </tbody>
               </table>
+            @if (count($movements) > 4)
             <div class="text-center">
                 <a href="{{route('stock')}}" class="text-primary">Voir plus...</a>
             </div>
+            @endif
             </div>
           </div>
         </div>
