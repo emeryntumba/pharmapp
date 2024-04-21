@@ -15,9 +15,10 @@ class IndexController extends Controller
     public function index(){
         $devise = Auth::user()->gestionnaire->etablissement->devise;
         Session::put('devise', $devise);
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
 
-        $movements = StockMovement::latest()->limit(4)->get();
-        $factures = Commande::latest()->limit(5)->get();
+        $movements = StockMovement::where('etablissement_id', $etablissement)->latest()->limit(4)->get();
+        $factures = Commande::where('etablissement_id', $etablissement)->latest()->limit(5)->get();
 
         return view('index', [
             'movements' => $movements,
@@ -26,8 +27,10 @@ class IndexController extends Controller
     }
 
     public function recenteVente(){
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         $date_30_jours = Carbon::now()->subDays(30);
         $commandes_recentes = Commande::select(DB::raw('DATE(updated_at) as date'), DB::raw('SUM(montant_total) as total'))
+            ->where('etablissement_id', $etablissement)
             ->where('updated_at', '>=', $date_30_jours)
             ->groupBy('date')
             ->orderBy('date')
@@ -36,23 +39,22 @@ class IndexController extends Controller
     }
 
     public function totalVenteMois() {
-        // Calculer la date de début et de fin du mois en cours
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+
         $date_debut = Carbon::now()->startOfMonth();
         $date_fin = Carbon::now()->endOfMonth();
 
-        // Calculer la date de début et de fin du mois précédent
         $date_debut_mois_precedent = Carbon::now()->subMonth()->startOfMonth();
         $date_fin_mois_precedent = Carbon::now()->subMonth()->endOfMonth();
 
-        // Somme des ventes du mois en cours
-        $vente_mois_en_cours = Commande::whereBetween('updated_at', [$date_debut, $date_fin])
+        $vente_mois_en_cours = Commande::where('etablissement_id', $etablissement)
+            ->whereBetween('updated_at', [$date_debut, $date_fin])
             ->sum('montant_total');
 
-        // Somme des ventes du mois précédent
-        $vente_mois_precedent = Commande::whereBetween('updated_at', [$date_debut_mois_precedent, $date_fin_mois_precedent])
+        $vente_mois_precedent = Commande::where('etablissement_id', $etablissement)
+            ->whereBetween('updated_at', [$date_debut_mois_precedent, $date_fin_mois_precedent])
             ->sum('montant_total');
 
-        // Calculer la différence en pourcentage entre les ventes du mois en cours et celles du mois précédent
         $pourcentage_variation = 0;
         if ($vente_mois_precedent != 0) {
             $pourcentage_variation = (($vente_mois_en_cours - $vente_mois_precedent) / $vente_mois_precedent) * 100;
@@ -62,7 +64,6 @@ class IndexController extends Controller
         $moyenne = number_format($vente_mois_en_cours, 2, '.', ' ');
         $pourcentage_variation_format = number_format($pourcentage_variation, 2, '.', ' ');
 
-        // Retourner les données au format JSON
         return response()->json([
             'vente' => $moyenne,
             'difference' => $pourcentage_variation_format,
@@ -72,16 +73,13 @@ class IndexController extends Controller
 
 
     public function getAllVenteAnnee(){
-        // Déterminer l'année en cours
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         $annee_en_cours = Carbon::now()->year;
-
-        // Initialiser un tableau pour stocker la somme des ventes par mois
         $somme_vente_par_mois = [];
 
-        // Boucler sur chaque mois de l'année en cours
         for ($mois = 1; $mois <= 12; $mois++) {
-            // Calculer la somme des ventes pour le mois actuel
-            $somme_vente = Commande::whereYear('updated_at', $annee_en_cours)
+            $somme_vente = Commande::where('etablissement_id', $etablissement)
+                ->wherwhereYear('updated_at', $annee_en_cours)
                 ->whereMonth('updated_at', $mois)
                 ->sum('montant_total');
 
@@ -98,8 +96,10 @@ class IndexController extends Controller
     }
 
     public function mostSelled(){
+        $etablissement = Auth::user()->gestionnaire->etablissement->id;
         $produit_plus_vendu = Produit::select('produits.nom',
                 DB::raw('SUM(ligne_commandes.quantite) as total_vendu'))
+                ->where('etablissement_id', $etablissement)
                 ->join('ligne_commandes', 'produits.id', '=',
                 'ligne_commandes.produit_id')
                 ->groupBy('produits.nom')
