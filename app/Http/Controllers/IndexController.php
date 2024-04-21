@@ -79,7 +79,7 @@ class IndexController extends Controller
 
         for ($mois = 1; $mois <= 12; $mois++) {
             $somme_vente = Commande::where('etablissement_id', $etablissement)
-                ->wherwhereYear('updated_at', $annee_en_cours)
+                ->whereYear('updated_at', $annee_en_cours)
                 ->whereMonth('updated_at', $mois)
                 ->sum('montant_total');
 
