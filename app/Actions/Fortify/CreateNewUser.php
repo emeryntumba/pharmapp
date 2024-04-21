@@ -2,9 +2,11 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Etablissement;
 use App\Models\Gestionnaire;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
@@ -38,12 +40,24 @@ class CreateNewUser implements CreatesNewUsers
             'password' => Hash::make($input['password']),
         ]);
 
+        $etablissement = Etablissement::create([
+            'nom_etablissement' => session('nom_etablissement'),
+            'rccm' => session('rccm'),
+            'id_nat' => session('id_nat'),
+            'num_impot' => session('num_impot'),
+            'tva' => session('tva'),
+            'devise' => session('devise'),
+            'adresse' => session('adresse')
+        ]);
+
         Gestionnaire::create([
-            'etablissement_id' => session('id_etablissement'),
+            'etablissement_id' => $etablissement->id,
             'user_id' => $user->id,
             'nom' => $input['name'],
             'telephone' => $input['telephone'],
         ]);
+
+        Session::flush();
 
         return $user;
     }

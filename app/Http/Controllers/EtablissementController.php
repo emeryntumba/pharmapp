@@ -14,17 +14,13 @@ class EtablissementController extends Controller
 
     public function store(Request $request){
 
-        $etablissement = Etablissement::create([
-            'nom_etablissement' => $request->nom_etablissement,
-            'rccm' => $request->rccm,
-            'id_nat' => $request->id_nat,
-            'num_impot' => $request->num_impot,
-            'tva' => $request->tva,
-            'devise' => $request->devise,
-            'adresse' => $request->adresse,
-        ]);
-
-        Session::put('id_etablissement', $etablissement->id);
+        Session::put('nom_etablissement', $request->nom_etablissement);
+        Session::put('rccm', $request->rccm);
+        Session::put('id_nat', $request->id_nat);
+        Session::put('num_impot', $request->num_impot);
+        Session::put('tva', $request->tva);
+        Session::put('devise', $request->devise);
+        Session::put('adresse', $request->adresse);
 
         return redirect('/register');
     }
