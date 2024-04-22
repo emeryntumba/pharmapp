@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
 use Livewire\WithPagination;
 
-
 class ProduitComponent extends Component{
 
     use WithPagination;
@@ -33,10 +32,11 @@ class ProduitComponent extends Component{
 
     public function delete($id){
         $produit = Produit::find($id);
-
-        if($produit){
-            $produit->stockMovements()->delete();
-            $produit->delete();
+        if (Auth::user()->hasRole('administrateur')) {
+            if($produit){
+                $produit->stockMovements()->delete();
+                $produit->delete();
+            }
         }
     }
 
@@ -47,9 +47,11 @@ class ProduitComponent extends Component{
 
     public function deleteSelected()
     {
-        if (!empty($this->selectedElements)) {
-            Produit::whereIn('id', $this->selectedElements)->delete();
-            $this->selectedElements = [];
+        if (Auth::user()->hasRole('administrateur')) {
+            if (!empty($this->selectedElements)) {
+                Produit::whereIn('id', $this->selectedElements)->delete();
+                $this->selectedElements = [];
+            }
         }
     }
 

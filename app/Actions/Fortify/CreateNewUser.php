@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\CreatesNewUsers;
+use Spatie\Permission\Models\Role;
 
 class CreateNewUser implements CreatesNewUsers
 {
@@ -56,6 +57,9 @@ class CreateNewUser implements CreatesNewUsers
             'nom' => $input['name'],
             'telephone' => $input['telephone'],
         ]);
+
+        $adminRole = Role::where('name', 'administrateur')->first();
+        $user->assignRole($adminRole);
 
         Session::flush();
 
