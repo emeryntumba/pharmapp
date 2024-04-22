@@ -5,13 +5,13 @@
 @section('content')
 
     <div class="container-fluid">
-        <div class="row ">
+        <div class="row justify-content-center">
             @if (session('success-param'))
                 <div class="alert alert-success">
                     {{ session('success-param') }}
                 </div>
             @endif
-            <div class="col-md-4">
+            <div class="col-md-8">
                 <div class="accordion" id="accordionView">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
@@ -90,7 +90,7 @@
 
                     <div id="collapsTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionView">
                         <div class="accordion-body">
-                            two
+                            <livewire:users-control/>
                         </div>
                     </div>
 

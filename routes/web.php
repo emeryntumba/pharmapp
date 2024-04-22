@@ -50,8 +50,10 @@ Route::middleware('auth')->group(function () {
     Route::get('finance', [FinanceController::class, 'index'])->name('finance');
     Route::get('finance/portefeuille', [FinanceController::class, 'showPortefeuille'])->name('finance.portefeuille');
 
-    Route::get('parametres', [ParametreController::class, 'index'])->name('parametre');
-    Route::put('parametres/update', [ParametreController::class, 'update'])->name('parametre.update');
+   Route::middleware('role:administrateur')->group(function(){
+        Route::get('parametres', [ParametreController::class, 'index'])->name('parametre');
+        Route::put('parametres/update', [ParametreController::class, 'update'])->name('parametre.update');
+   });
 
     Route::get('chart/sell-evolution', [IndexController::class, 'recenteVente']);
     Route::get('chart/mostselled', [IndexController::class, 'mostselled']);

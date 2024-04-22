@@ -73,11 +73,15 @@ class FinanceController extends Controller
 
     public function sommeMontantTotalAnnee()
     {
-        $etablissement = Auth::user()->gestionnaire->etablissement->id;
-        $total =Commande::where('etablissement_id', $etablissement)
-                        ->whereYear('updated_at', now()->year)
-                        ->sum('montant_total');
-        return $total;
+        if(Auth::user()->hasRole('administrateur')){
+            $etablissement = Auth::user()->gestionnaire->etablissement->id;
+            $total =Commande::where('etablissement_id', $etablissement)
+                            ->whereYear('updated_at', now()->year)
+                            ->sum('montant_total');
+            return $total;
+        }else{
+            return 'vous n\'etes pas autorisé à voir cette info';
+        }
     }
 
     public function sommeMontantTotalPeriodePersonnalisee(Request $request)
@@ -100,17 +104,21 @@ class FinanceController extends Controller
     }
 
     public function etatPorteuille(){
-        $etablissement = Auth::user()->gestionnaire->etablissement->id;
-        $somme_entrees = Portefeuille::where('etablissement_id', $etablissement)
-        ->where('type_transaction', 'entree_caisse')->sum('montant');
+        if(Auth::user()->hasRole('administrateur')){
+            $etablissement = Auth::user()->gestionnaire->etablissement->id;
+            $somme_entrees = Portefeuille::where('etablissement_id', $etablissement)
+            ->where('type_transaction', 'entree_caisse')->sum('montant');
 
-        $somme_sorties = Portefeuille::where('etablissement_id', $etablissement)
-        ->where('type_transaction', 'sortie_caisse')->sum('montant');
+            $somme_sorties = Portefeuille::where('etablissement_id', $etablissement)
+            ->where('type_transaction', 'sortie_caisse')->sum('montant');
 
-        // Différence entre les sommes des entrées et des sorties
-        $etat_portefeuille = $somme_entrees - $somme_sorties;
+            // Différence entre les sommes des entrées et des sorties
+            $etat_portefeuille = $somme_entrees - $somme_sorties;
 
-        return $etat_portefeuille;
+            return $etat_portefeuille;
+        } else {
+            return 'vous n\'etes pas autorisé à voir cette info';
+        }
     }
 
     public function showPortefeuille(){
