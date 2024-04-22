@@ -21,7 +21,7 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
+                  <img src="../assets/images/logos/logo.png" width="180" alt="">
                 </a>
                 <p class="text-center">Gérer votre pharmacie devient facile</p>
                 @if ($errors->any())
@@ -34,11 +34,11 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" required>
                     </div>
                   <div class="mb-4">
                     <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+                    <input type="password" class="form-control" name="password" id="exampleInputPassword1" required>
                   </div>
                   <div class="d-flex align-items-center justify-content-between mb-4">
                     <div class="form-check">
