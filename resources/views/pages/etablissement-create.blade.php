@@ -21,7 +21,7 @@
             <div class="card my-2">
               <div class="card-body">
                 <a href="{{ route('index') }}" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
+                  <img src="../assets/images/logos/logo.png" width="180" alt="logo_image">
                 </a>
                 <p class="text-center">Gérer votre pharmacie devient facile</p>
                 @if ($errors->any())
