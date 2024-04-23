@@ -13,7 +13,7 @@ class PromoteAdminSeeder extends Seeder
      */
     public function run(): void
     {
-        $user = User::findOrFail(4);
+        $user = User::findOrFail(1);
         if($user){
             $adminRole = Role::where('name', 'administrateur')->first();
             $user->assignRole($adminRole);
