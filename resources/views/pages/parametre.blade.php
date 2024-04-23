@@ -11,7 +11,7 @@
                     {{ session('success-param') }}
                 </div>
             @endif
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <div class="accordion" id="accordionView">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
