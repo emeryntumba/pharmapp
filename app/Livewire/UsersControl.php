@@ -48,4 +48,9 @@ class UsersControl extends Component
             return redirect('/parametres')->with('user-created', $msg);
         }
     }
+
+    public function deleteUser($id){
+        $user = User::findOrFail($id);
+        $user->delete();
+    }
 }

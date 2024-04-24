@@ -32,9 +32,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->getRoleNames()->first() }}</td>
                         <td class="border-bottom-0">
-                            <a href=""><button class="btn btn-primary fs-1"><i class="ti ti-eye"></i></button></a>
-                            <a href=""><button class="btn btn-warning fs-1" data-bs-toggle="modal" data-bs-target="#Modal2"><i class="ti ti-pencil"></i></button></a>
-                            <button class="btn btn-danger fs-1"  wire:confirm="Etes-vous sur de vouloir supprimer ce produit?"><i class="ti ti-trash"></i></button>
+                            <button class="btn btn-danger fs-2" wire:click="deleteUser({{ $user->id }})"  wire:confirm="Etes-vous sur de vouloir supprimer ce produit?"><i class="ti ti-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach
@@ -44,36 +42,42 @@
     </div>
 
     <div class="col-md-4 mt-1">
-        <form action="">
-            <div class="form-group row mb-2">
-                <label for="name" class="col-sm-2 col-form-label">Nom</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" wire:model="name" placeholder="nom d'utilisateur" required>
-                </div>
-            </div>
-            <div class="form-group row mb-2">
-                <label for="code" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="code" wire:model="email" placeholder="son adresse mail" required>
-                </div>
+        <div class="row">
+            <div class="col-12">
+                <form action="">
+                    <legend>Ajouter un utilisateur</legend>
+                    <div class="form-group row mb-2">
+                        <label for="name" class="col-sm-2 col-form-label">Nom</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" wire:model="name" placeholder="nom d'utilisateur" required>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-2">
+                        <label for="code" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="code" wire:model="email" placeholder="son adresse mail" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-2">
+                        <label for="code" class="col-sm-2 col-form-label">Role</label>
+                        <div class="col-sm-10">
+                            <select wire:model="role" id="" class="form-select">
+                                <option value="">choisir le role</option>
+                                <option value="caissier">caissier</option>
+                                <option value="administrateur">administrateur</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-2">
+                        <span>Mot de passe par défaut, lui sera notifié via email: <span class="text-warning">pharmapp{{  now()->year  }}</span></span>
+                    </div>
+                    <button wire:click="createUser" class="btn btn-success"><span><i class="ti ti-plus"></i></span> Ajouter l'utilisateur</button></a>
+                </form>
             </div>
 
-            <div class="form-group row mb-2">
-                <label for="code" class="col-sm-2 col-form-label">Role</label>
-                <div class="col-sm-10">
-                    <select wire:model="role" id="" class="form-select">
-                        <option value="">choisir le role</option>
-                        <option value="caissier">caissier</option>
-                        <option value="administrateur">administrateur</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="mb-2">
-                <span>Mot de passe par défaut, lui sera notifié via email: <span class="text-warning">pharmapp{{  now()->year  }}</span></span>
-            </div>
-        </form>
-        <button wire:click="createUser" class="btn btn-success"><span><i class="ti ti-plus"></i></span> Ajouter l'utilisateur</button></a>
+        </div>
     </div>
 
 </div>
