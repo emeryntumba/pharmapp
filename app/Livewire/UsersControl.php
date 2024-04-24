@@ -14,6 +14,7 @@ class UsersControl extends Component
 {
     public $name;
     public $email;
+    public $role;
 
     public function render()
     {
@@ -33,9 +34,7 @@ class UsersControl extends Component
                 'email' => $this->email,
                 'password' => bcrypt('pharmapp'.Carbon::now()->year),
             ]);
-
-
-            $user->assignRole('caissier');
+            $user->assignRole($this->role);
 
             Gestionnaire::create([
                 'etablissement_id' => Auth::user()->gestionnaire->etablissement->id,

@@ -48,13 +48,24 @@
             <div class="form-group row mb-2">
                 <label for="name" class="col-sm-2 col-form-label">Nom</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="name" wire:model="name" required>
+                    <input type="text" class="form-control" id="name" wire:model="name" placeholder="nom d'utilisateur" required>
                 </div>
             </div>
             <div class="form-group row mb-2">
                 <label for="code" class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="code" wire:model="email" required>
+                    <input type="text" class="form-control" id="code" wire:model="email" placeholder="son adresse mail" required>
+                </div>
+            </div>
+
+            <div class="form-group row mb-2">
+                <label for="code" class="col-sm-2 col-form-label">Role</label>
+                <div class="col-sm-10">
+                    <select wire:model="role" id="" class="form-select">
+                        <option value="">choisir le role</option>
+                        <option value="caissier">caissier</option>
+                        <option value="administrateur">administrateur</option>
+                    </select>
                 </div>
             </div>
 
