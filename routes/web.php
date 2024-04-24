@@ -9,6 +9,7 @@ use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ParametreController;
 use App\Http\Controllers\ProduitController;
 use App\Http\Controllers\StockController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\VenteController;
 
 /*
@@ -44,8 +45,8 @@ Route::middleware('auth')->group(function () {
         });
     });
 
-
-
+    Route::get('user/profile', [UserController::class, 'profile'])->name('user.profile');
+    Route::get('user/operations', [UserController::class, 'operation'])->name('user.operation');
     Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
     Route::get('finance', [FinanceController::class, 'index'])->name('finance');
     Route::get('finance/portefeuille', [FinanceController::class, 'showPortefeuille'])->name('finance.portefeuille');

@@ -15,7 +15,7 @@
       </ul>
       <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-          <a href="" target="_blank" class="btn btn-primary">Download Free</a>
+          <a href="{{ url('') }}" class="btn btn-primary">Télecharger <i class="ti ti-arrow-down"></i></a>
           <li class="nav-item dropdown">
             <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
               aria-expanded="false">
@@ -23,17 +23,14 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
               <div class="message-body">
+                <span class="ms-3"><span class="fs-5 fw-bold">Hi🤗 </span>{{ auth()->user()->name }}</span>
                 <a href="{{url('user/profile')}}" class="d-flex align-items-center gap-2 dropdown-item">
                   <i class="ti ti-user fs-6"></i>
                   <p class="mb-0 fs-3">Mon Profile</p>
                 </a>
-                <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
-                  <i class="ti ti-mail fs-6"></i>
-                  <p class="mb-0 fs-3">My Account</p>
-                </a>
-                <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                <a href="{{url('user/operations')}}" class="d-flex align-items-center gap-2 dropdown-item">
                   <i class="ti ti-list-check fs-6"></i>
-                  <p class="mb-0 fs-3">My Task</p>
+                  <p class="mb-0 fs-3">Mes Opérations</p>
                 </a>
                 <form action="{{route('logout')}}" method="POST">
                     @csrf

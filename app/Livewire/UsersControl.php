@@ -45,7 +45,7 @@ class UsersControl extends Component
             $this->reset();
 
             $msg = 'Utilisateur créé avec succès, une notification est envoyée à son adresse avec toutes les infos de connexion, merci !';
-            return redirect('/parametres')->with('user-created', $msg);
+            Session::flash('message', $msg);
         }
     }
 
