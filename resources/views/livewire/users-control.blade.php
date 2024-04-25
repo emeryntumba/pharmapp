@@ -34,7 +34,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->getRoleNames()->first() }}</td>
                         <td class="border-bottom-0">
-                            <button class="btn btn-danger fs-2" wire:click="deleteUser({{ $user->id }})"  wire:confirm="Etes-vous sur de vouloir supprimer ce produit?"><i class="ti ti-trash"></i></button>
+                            <button class="btn btn-danger fs-2" wire:click="deleteUser({{ $user->id }})"  wire:confirm="Etes-vous sur de vouloir supprimer cet utilisateur ?"><i class="ti ti-trash"></i></button>
                         </td>
                     </tr>
                 @endforeach
