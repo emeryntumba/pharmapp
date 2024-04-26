@@ -5,7 +5,6 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\Produit;
 use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\On;
 use Livewire\WithPagination;
 
 class ProduitComponent extends Component{
@@ -13,7 +12,7 @@ class ProduitComponent extends Component{
     use WithPagination;
 
     public $search = '';
-    public $afficher = 10;
+    public $afficher;
     public $selectedElements = [];
 
     public function render(){

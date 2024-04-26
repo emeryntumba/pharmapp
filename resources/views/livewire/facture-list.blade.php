@@ -19,7 +19,6 @@
                         <option value="10">10</option>
                         <option value="20">20</option>
                         <option value="30">30</option>
-                        <option value="all">Tout</option>
                     </select>
                 </div>
             </div>
@@ -93,6 +92,9 @@
                   @endforeach
               </tbody>
             </table>
+            <div class="mt-3">
+                {{ $commandes->links('pagination::bootstrap-5') }}
+            </div>
           </div>
         </div>
         @else
