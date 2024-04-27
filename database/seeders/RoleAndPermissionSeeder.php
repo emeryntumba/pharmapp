@@ -14,13 +14,13 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        Permission::create(['name' => 'create-sell']);
-        Permission::create(['name' => 'create-product']);
+        //Permission::create(['name' => 'create-sell']);
+        //Permission::create(['name' => 'create-product']);
 
         $adminRole = Role::create(['name' => 'administrateur']);
-        $caissierRole = Role::create(['name' => 'caissier']);
+        //$caissierRole = Role::create(['name' => 'caissier']);
 
         $adminRole->givePermissionTo(Permission::all());
-        $caissierRole->givePermissionTo(['create-sell', 'create-product']);
+        //$caissierRole->givePermissionTo(['create-sell', 'create-product']);
     }
 }
