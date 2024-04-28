@@ -4,8 +4,6 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row">
-
-    </div>
+    <livewire:user-operations/>
 </div>
 @endsection

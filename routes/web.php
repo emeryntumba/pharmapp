@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('factures', [FactureController::class, 'index'])->name('facture');
 
-    Route::get('stock', [StockController::class, 'index'])->name('stock');
+    Route::get('stock', [StockController::class, 'index'])->name('stock')->middleware('role:administrateur');
 
     Route::get('produit/create', [ProduitController::class, 'create'])->name('produit.create');
     Route::get('produit/edit/{id}',  [ProduitController::class, 'edit'])->name('produit.edit');
