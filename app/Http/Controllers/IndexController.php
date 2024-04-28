@@ -23,12 +23,12 @@ class IndexController extends Controller
             $movements = StockMovement::where('etablissement_id', $etablissement)
                                 ->where('user_id', Auth::user()->id)
                                 ->latest()
-                                ->limit(5)
+                                ->limit(4)
                                 ->get();
             $factures = Commande::where('etablissement_id', $etablissement)
                                 ->where('gestionnaire_id', Auth::user()->gestionnaire->id)
                                 ->latest()
-                                ->limit(6)
+                                ->limit(5)
                                 ->get();
         }
         return view('index', [

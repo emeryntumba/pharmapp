@@ -171,7 +171,7 @@
 
                 </tbody>
               </table>
-            @if (count($movements) > 4)
+            @if (count($movements) > 3)
             <div class="text-center">
                 <a href="{{route('stock')}}" class="text-primary">Voir plus...</a>
             </div>
