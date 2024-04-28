@@ -84,7 +84,7 @@
     </div>
     @else
     <div class="card-body p-4 text-center">
-        <h5 class="card-title fw-semibold mb-4">Pas de mouvement de stock enregistré !</h5>
+        <h5 class="card-title fw-semibold mb-4 alert alert-warning">Pas de mouvement de stock enregistré !</h5>
     </div>
     @endif
   </div>
