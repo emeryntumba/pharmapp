@@ -14,12 +14,23 @@ class IndexController extends Controller
 {
     public function index(){
         $devise = Auth::user()->gestionnaire->etablissement->devise;
-        Session::put('devise', $devise);
-        $etablissement = Auth::user()->gestionnaire->etablissement->id;
-
-        $movements = StockMovement::where('etablissement_id', $etablissement)->latest()->limit(4)->get();
-        $factures = Commande::where('etablissement_id', $etablissement)->latest()->limit(5)->get();
-
+            Session::put('devise', $devise);
+            $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        if(Auth::user()->hasRole('administrateur')){
+            $movements = StockMovement::where('etablissement_id', $etablissement)->latest()->limit(4)->get();
+            $factures = Commande::where('etablissement_id', $etablissement)->latest()->limit(5)->get();
+        }else{
+            $movements = StockMovement::where('etablissement_id', $etablissement)
+                                ->where('user_id', Auth::user()->id)
+                                ->latest()
+                                ->limit(5)
+                                ->get();
+            $factures = Commande::where('etablissement_id', $etablissement)
+                                ->where('gestionnaire_id', Auth::user()->gestionnaire->id)
+                                ->latest()
+                                ->limit(6)
+                                ->get();
+        }
         return view('index', [
             'movements' => $movements,
             'factures' => $factures,

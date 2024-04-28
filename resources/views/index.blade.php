@@ -101,7 +101,7 @@
               </li>
 
               @empty
-              No data
+              Vous n'avez pas encore d'operation enregistrée
               @endforelse
             </ul>
           </div>
@@ -163,7 +163,9 @@
 
                   @empty
 
-                  No Data
+                  <div class="">
+                    <p>Pas d'operation enregistrée</p>
+                  </div>
 
                   @endforelse
 
