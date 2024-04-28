@@ -5,16 +5,22 @@ namespace App\Livewire;
 use App\Models\StockMovement;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class StockList extends Component
 {
-    public $stocks;
+    use WithPagination;
 
-    public function render()
-    {
+    public $afficher = 10;
+
+    public function render(){
         $etablissement = Auth::user()->gestionnaire->etablissement->id;
-        $this->stocks = StockMovement::where('etablissement_id', $etablissement)->orderBy('created_at', 'desc')->get();
-        return view('livewire.stock-list');
+        $stocks = StockMovement::where('etablissement_id', $etablissement)
+                            ->orderBy('created_at', 'desc')
+                            ->paginate($this->afficher);
+        return view('livewire.stock-list',[
+            'stocks' => $stocks,
+        ]);
     }
 
 
