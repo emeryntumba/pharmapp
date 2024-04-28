@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Commande;
-use App\Models\StockMovement;
+use Illuminate\Support\Facades\Auth;
 
 class StockController extends Controller
 {
     public function index(){
-        return view('pages.stock');
+        if(Auth::user()->hasRole('administrateur')){
+            return view('pages.stock');
+        }else{
+            return redirect('user/operations');
+        }
     }
 }
