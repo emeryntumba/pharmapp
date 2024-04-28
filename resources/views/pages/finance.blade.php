@@ -42,7 +42,7 @@
             <div class="card bg-dark text-white">
                 <div class="card-body">
                     <h5 class="card-title text-white">Total des ventes pour cette année</h5>
-                    <p class="card-text fw-bolder fs-5">{{ number_format($totalAnnee, 0, ',', ' ') }} {{ session('devise') }}</p>
+                    <p class="card-text fw-bolder fs-5">{{ $totalAnnee }} {{ session('devise') }}</p>
                 </div>
             </div>
         </div>
@@ -52,7 +52,7 @@
                 <a href="{{route('finance.portefeuille')}}">
                     <div class="card-body text-white">
                         <h5 class="card-title text-white">Portefeuille</h5>
-                        <p class="card-text fw-bolder fs-5">{{ number_format($etat_actuelle, 0, ',', ' ') }} {{ session('devise') }}</p>
+                        <p class="card-text fw-bolder fs-5">{{ $etat_actuelle }} {{ session('devise') }}</p>
                     </div>
                 </a>
             </div>
