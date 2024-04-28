@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Session;
 class IndexController extends Controller
 {
     public function index(){
+        $notifications = Auth::user()->notifications;
+        Session::put('notifications', $notifications);
+
         $devise = Auth::user()->gestionnaire->etablissement->devise;
             Session::put('devise', $devise);
             $etablissement = Auth::user()->gestionnaire->etablissement->id;

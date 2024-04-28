@@ -7,7 +7,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+          <a class="nav-link nav-icon-hover" href="#" id="showNotifications">
             <i class="ti ti-bell-ringing"></i>
             <div class="notification bg-primary rounded-circle"></div>
           </a>
@@ -47,3 +47,29 @@
     </nav>
   </header>
   <!--  Header End -->
+
+  <div id="notificationsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="notificationsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notificationsModalLabel">Notifications</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @if(Session::has('notifications'))
+                <ul class="list-group">
+                    @foreach(Session::get('notifications') as $notification)
+                    @php
+                    $productId = $notification->data['produit_id'];
+                    $product = \App\Models\Produit::find($productId);
+                    @endphp
+                    <li class="list-group-item fw-bold"><span class="fw-bolder">{{ $product->nom }}</span>:{{ $notification->data['message'] }}</li>
+                    @endforeach
+                </ul>
+                @endif
+            </div>
+        </div>
+    </div>
+</div>
+
+

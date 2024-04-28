@@ -55,4 +55,11 @@ class StockAlertNotification extends Notification
         ];
     }
 
+    public function toDatabase(object $notifiable){
+        return [
+            'message' => 'Stock bientôt épuisé. Veuillez réapprovisionner.',
+            'produit_id' => $this->produit->id, // Ajoutez d'autres informations pertinentes ici
+        ];
+    }
+
 }
