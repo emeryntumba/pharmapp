@@ -15,7 +15,7 @@
       </ul>
       <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
         <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
-          <a href="{{ url('') }}" class="btn btn-primary">Télecharger <i class="ti ti-arrow-down"></i></a>
+          <a  class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Coming soon... 🐱">Télecharger <i class="ti ti-arrow-down"></i></a>
           <li class="nav-item dropdown">
             <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
               aria-expanded="false">
