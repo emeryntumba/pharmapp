@@ -51,6 +51,11 @@ Make sure you have the following installed on your system:
    ```bash
    php artisan migrate
    ```
+7. Run seeder to create Admin role and Unknow customer
+    
+   ```bash
+   php artisan db:seed
+   ```
 
 7. Start the development server:
 
