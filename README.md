@@ -11,8 +11,8 @@ Follow these steps to install and run PharmApp locally.
 Make sure you have the following installed on your system:
 
 - [Composer](https://getcomposer.org/)
-- [PHP](https://www.php.net/) (8.1)
-- [Laravel](https://www.laravel.com) (v10)
+- [PHP](https://www.php.net/) (^8.1)
+- [Laravel](https://www.laravel.com) (^10)
 
 ### Installation Steps
 
@@ -57,13 +57,13 @@ Make sure you have the following installed on your system:
    php artisan db:seed
    ```
 
-7. Start the development server:
+8. Start the development server:
 
    ```bash
    php artisan serve
    ```
 
-8. Visit `http://localhost:8000` in your browser to access PharmApp.
+9. Visit `http://localhost:8000` in your browser to access PharmApp.
 
 ## Features
 
