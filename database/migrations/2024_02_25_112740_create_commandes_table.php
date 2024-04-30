@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('client_id');
-            $table->date('date_commande');
-            $table->float('montant_total');
+            $table->unsignedBigInteger('client_id')->nullable();
+            $table->float('montant_total')->nullable();
             $table->string('mode_paiement');
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->timestamps();
