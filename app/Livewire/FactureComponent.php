@@ -10,7 +10,8 @@ use App\Models\Produit;
 use App\Models\StockMovement;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\On;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\View;
+use Native\Laravel\Facades\System;
 
 class FactureComponent extends Component
 {
@@ -135,23 +136,21 @@ class FactureComponent extends Component
         ]);
 
 
-        $pdf = Pdf::loadView('docs.invoice', [
-            'products'=>$this->products,
-            'totalGeneral'=>$montant_total,
-            'commande'=>$cmd,
-            'etablissement'=> Auth::user()->gestionnaire->etablissement,
-        ]);
+        $file = View::make('docs.invoice', [
+            'products' => $this->ligneCommandes,
+            'totalGeneral' => $this->facture->montant_total,
+            'commande' => $this->facture,
+            'etablissement' => Auth::user()->gestionnaire->etablissement,
+        ])->render();
+
+
 
         $this->dispatch('stock-refreshed');
 
         $this->products = [];
         $montant_total = 0;
 
-        return response()->streamDownload(function () use ($pdf) {
-            echo $pdf->stream();
-            }, 'invoice.pdf');
-
-
+        return System::print($file);
     }
 
 
