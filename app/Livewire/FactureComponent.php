@@ -90,13 +90,13 @@ class FactureComponent extends Component
     }
 
     public function save(){
-        $etablissement = Auth::user()->gestionnaire->etablissement->id;
+        $etablissement = Auth::user()->gestionnaire->etablissement;
         $montant_total = 0;
 
         $cmd =  Commande::create([
             'client_id' => 1,
             'mode_paiement' => 'cash',
-            'etablissement_id' => $etablissement,
+            'etablissement_id' => $etablissement->id,
             'gestionnaire_id' => Auth::user()->gestionnaire->id,
         ]);
 
@@ -137,13 +137,11 @@ class FactureComponent extends Component
 
 
         $file = View::make('docs.invoice', [
-            'products' => $this->ligneCommandes,
-            'totalGeneral' => $this->facture->montant_total,
-            'commande' => $this->facture,
+            'products' => $cmd->ligneCommandes,
+            'totalGeneral' => $cmd->montant_total,
+            'commande' => $cmd,
             'etablissement' => Auth::user()->gestionnaire->etablissement,
         ])->render();
-
-
 
         $this->dispatch('stock-refreshed');
 
