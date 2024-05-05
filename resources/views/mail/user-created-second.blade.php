@@ -15,7 +15,7 @@
         <tr>
             <td style="padding: 20px;">
                 <p>Bonjour {{ $user->name }},</p>
-                <p>Vous avez été inscrit sur notre plateforme pour la pharmacie {{ $etablissement->nom }} avec succès.
+                <p>Vous avez été inscrit sur notre plateforme pour la pharmacie <strong>{{ $etablissement->nom_etablissement }}</strong> avec succès.
                     <br> Voici vos coordonnées d'accès: <ul>
                         <li>email: <strong>{{ $user->email }}</strong></li>
                         <li>password: <strong>pharmapp{{ \Carbon\Carbon::now()->year }}</strong></li>
