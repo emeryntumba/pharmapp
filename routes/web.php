@@ -5,6 +5,7 @@ use App\Http\Controllers\FactureController;
 use App\Http\Controllers\FinanceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\LandingPageController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\ParametreController;
 use App\Http\Controllers\ProduitController;
@@ -22,12 +23,12 @@ use App\Http\Controllers\VenteController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [LandingPageController::class, 'index'])->name('landing.index');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', [IndexController::class, 'index'])->name('index');
-    Route::get('home', [IndexController::class, 'index'])->name('index');
-
+    Route::get('/app', [IndexController::class, 'index'])->name('index');
+    
     Route::get('vente', [VenteController::class, 'index'])->name('vente');
 
     Route::get('factures', [FactureController::class, 'index'])->name('facture');
