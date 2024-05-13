@@ -27,8 +27,8 @@ Route::get('/', [LandingPageController::class, 'index'])->name('landing.index');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/app', [IndexController::class, 'index'])->name('index');
-    
+    Route::get('/home', [IndexController::class, 'index'])->name('index');
+
     Route::get('vente', [VenteController::class, 'index'])->name('vente');
 
     Route::get('factures', [FactureController::class, 'index'])->name('facture');

@@ -51,6 +51,7 @@ class ProduitController extends Controller
                 StockMovement::create(
                     [
                         'user_id' => Auth::user()->id,
+                        'etablissement_id' => $etablissement,
                         'produit_id' => $produit->id,
                         'quantite' => $request->qte,
                         'movement_type' => 'in',

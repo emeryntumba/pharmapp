@@ -110,7 +110,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -235,7 +235,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #434175;
@@ -353,9 +353,6 @@ h6 {
   border-bottom: 2px solid white;
 }
 
-#hero .container {
-  padding-top: 80px;
-}
 
 #hero h1 {
   margin: 0;
