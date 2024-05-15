@@ -94,15 +94,9 @@
         </ul>
         <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
           <div class="d-flex">
-            <form action="{{route('logout')}}" method="POST">
                 <div class="unlimited-access-title me-3">
-
-                        @csrf
-
-                        <button type="submit" formmethod="POST" class="btn btn-primary fs-2 fw-semibold lh-sm">Se déconnecter</button>
+                    <a href="{{ url('/plan') }}"><button type="submit" class="btn btn-primary fs-2 fw-semibold lh-sm">Mettre à niveau mon plan</button></a>
                 </div>
-            </form>
-
           </div>
         </div>
       </nav>

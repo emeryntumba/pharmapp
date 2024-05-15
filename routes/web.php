@@ -24,10 +24,11 @@ use App\Http\Controllers\VenteController;
 |
 */
 Route::get('/', [LandingPageController::class, 'index'])->name('landing.index');
+Route::get('/home', [LandingPageController::class, 'index'])->name('landing.index');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/home', [IndexController::class, 'index'])->name('index');
+    Route::get('/dashboard', [IndexController::class, 'index'])->name('index');
 
     Route::get('vente', [VenteController::class, 'index'])->name('vente');
 

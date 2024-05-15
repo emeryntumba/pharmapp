@@ -13,7 +13,7 @@
           <li><a class="nav-link scrollto " href="#princing">Prix</a></li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="{{ route('etablissement.create') }}">Commencer</a></li>
+          <li><a class="getstarted scrollto" href="{{ route('etablissement.create') }}">S'inscrire</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
