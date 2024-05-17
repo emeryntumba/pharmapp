@@ -38,13 +38,7 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>S'inscrire à la Newsletter</h4>
-            <p>Restez au courant de nos dernières actualités et mises à jour</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="S'inscrire">
-            </form>
-          </div>
+          <livewire:news-letter/>
 
         </div>
       </div>
@@ -68,7 +62,6 @@
         <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
     </div>
