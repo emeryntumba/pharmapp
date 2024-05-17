@@ -9,8 +9,8 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Accueil</a></li>
-          <li><a class="nav-link scrollto" href="#fonctionnalites">Fonctionnalités</a></li>
-          <li><a class="nav-link scrollto " href="#princing">Prix</a></li>
+          <li><a class="nav-link scrollto" href="#features">Fonctionnalités</a></li>
+          <li><a class="nav-link scrollto " href="#pricing">Prix</a></li>
           <li><a class="nav-link scrollto" href="#faq">FAQ</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="getstarted scrollto" href="{{ route('etablissement.create') }}">S'inscrire</a></li>

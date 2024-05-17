@@ -6,43 +6,43 @@
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Resi.</h3>
+            <h3>OpenCommonHealth</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Immeuble Anapex<br>
+              Kinshasa - Gombe<br>
+              RD Congo<br><br>
+              <strong>Phone:</strong> +243 897 701 190<br>
+              <strong>Email:</strong> pharmapp@opencommonhealth.com<br>
             </p>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Liens Importants</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Accueil</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#features">Fonctionnalités</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#pricing">Prix</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#faq">FAQ</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Nos Produits & Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Pharmapp</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Health - Chatbot</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Health Analytic Tools</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Promouvoir l'IA au service médical</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Eye desease diagnostic</a></li>
             </ul>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
+            <h4>S'inscrire à la Newsletter</h4>
+            <p>Restez au courant de nos dernières actualités et mises à jour</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submit" value="S'inscrire">
             </form>
           </div>
 
@@ -54,14 +54,14 @@
 
       <div class="me-md-auto text-center text-md-start">
         <div class="copyright">
-          &copy; Copyright <strong><span>Resi</span></strong>. All Rights Reserved
+          &copy; Copyright <strong><span>OpenCommonHealth</span></strong>. Tout droit reservé
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
           <!-- You can delete the links only if you purchased the pro version. -->
           <!-- Licensing information: https://bootstrapmade.com/license/ -->
           <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/resi-free-bootstrap-html-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a><span> and </span><a href="https://kuetutech.com/">KuetuTech</a>
         </div>
       </div>
       <div class="social-links text-center text-md-right pt-3 pt-md-0">
