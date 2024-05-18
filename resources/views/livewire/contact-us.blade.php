@@ -4,7 +4,7 @@
 
       <div class="section-title">
         <h2>Contact</h2>
-        <p>Vous avez une préoccupation ? Vous cherchez un partenariat ? Vous rencontrez un bogue ? N'hésitez pas à nous contacter, nous vous répondrons au plus vite</p>
+        <p>Nous sommes là pour vous aider ! Que vous ayez des questions, besoin d'assistance, ou souhaitiez en savoir plus sur notre application de gestion de pharmacie, n'hésitez pas à nous contacter. Notre équipe de support est disponible pour répondre à toutes vos questions et vous offrir le soutien nécessaire pour garantir une expérience optimale avec notre application</p>
       </div>
 
       <div class="row">

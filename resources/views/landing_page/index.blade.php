@@ -30,152 +30,169 @@
 
   <main id="main">
 
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
+   <!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container">
 
-        <div class="row content">
-          <div class="col-lg-6">
-            <h2>Eum ipsam laborum deleniti velitena</h2>
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates sit assum perenda sruen jonee trave</h3>
+      <div class="row content">
+        <div class="col-lg-6">
+          <h2>Révolutionnez la Gestion de Votre Pharmacie</h2>
+          <h3>Optimisez vos opérations quotidiennes avec notre solution tout-en-un</h3>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Notre application de gestion de pharmacie est conçue pour simplifier et automatiser vos tâches quotidiennes. Dites adieu aux tracas administratifs et concentrez-vous sur ce qui compte vraiment : vos patients.
+          </p>
+          <ul>
+            <li><i class="ri-check-double-line"></i> Gestion simplifiée des stocks et des commandes</li>
+            <li><i class="ri-check-double-line"></i> Suivi précis des ventes et des rapports financiers</li>
+            <li><i class="ri-check-double-line"></i> Interface intuitive et facile à utiliser pour tous les membres de l'équipe</li>
+          </ul>
+          <p class="fst-italic">
+            Découvrez comment notre technologie peut transformer votre pharmacie en une entreprise plus efficace et plus rentable.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Section -->
+
+<!-- ======= Why Us Section ======= -->
+<section id="why-us" class="why-us">
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-lg-4 d-flex align-items-stretch">
+          <div class="box flex-fill">
+            <span>01</span>
+            <h4>Interface Intuitive</h4>
+            <p>Notre application est conçue pour être facile à utiliser, même pour ceux qui ne sont pas à l'aise avec la technologie. Gagnez du temps et évitez les erreurs.</p>
           </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-              Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-              velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-              culpa qui officia deserunt mollit anim id est laborum
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequa</li>
-              <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-              <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in</li>
-            </ul>
-            <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0 d-flex align-items-stretch">
+          <div class="box flex-fill">
+            <span>02</span>
+            <h4>Support Technique Dédié</h4>
+            <p>Notre équipe de support est disponible pour vous aider à tout moment. Profitez d'une assistance rapide et efficace pour toutes vos questions et problèmes.</p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0 d-flex align-items-stretch">
+          <div class="box flex-fill">
+            <span>03</span>
+            <h4>Conformité et Sécurité</h4>
+            <p>Nous garantissons la conformité aux normes de sécurité des données médicales. Vos informations sensibles sont protégées par les meilleurs protocoles de sécurité.</p>
           </div>
         </div>
 
       </div>
-    </section><!-- End About Section -->
 
-    <!-- ======= Why Us Section ======= -->
-    <section id="why-us" class="why-us">
-      <div class="container">
+    </div>
+  </section><!-- End Why Us Section -->
 
-        <div class="row">
 
-          <div class="col-lg-4">
-            <div class="box">
-              <span>01</span>
-              <h4>Lorem Ipsum</h4>
-              <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat</p>
-            </div>
+   <!-- ======= Features Section ======= -->
+<section id="features" class="features">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Fonctionnalités</h2>
+        <p>Découvrez les fonctionnalités puissantes de notre application de gestion de pharmacie qui simplifieront votre travail quotidien et amélioreront l'efficacité de votre pharmacie.</p>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-store-line" style="color: #ffbb2c;"></i>
+            <h3><a href="">Gestion des stocks</a></h3>
           </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>02</span>
-              <h4>Repellat Nihil</h4>
-              <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire leno para dest</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mt-4 mt-lg-0">
-            <div class="box">
-              <span>03</span>
-              <h4> Ad ad velit qui</h4>
-              <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis</p>
-            </div>
-          </div>
-
         </div>
 
-      </div>
-    </section><!-- End Why Us Section -->
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+            <h3><a href="">Analyse des ventes</a></h3>
+          </div>
+        </div>
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+            <h3><a href="">Gestion des commandes</a></h3>
+          </div>
+        </div>
 
-        <div class="row">
-          <div class="col-lg-3 col-md-4">
-            <div class="icon-box">
-              <i class="ri-store-line" style="color: #ffbb2c;"></i>
-              <h3><a href="">Lorem Ipsum</a></h3>
-            </div>
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+            <h3><a href="">Personnalisation</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
-              <h3><a href="">Dolor Sitema</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-database-2-line" style="color: #47aeff;"></i>
+            <h3><a href="">Base de données sécurisée</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
-            <div class="icon-box">
-              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
-              <h3><a href="">Sed perspiciatis</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+            <h3><a href="">Interface conviviale</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
-            <div class="icon-box">
-              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
-              <h3><a href="">Magni Dolores</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+            <h3><a href="">Rapports détaillés</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-database-2-line" style="color: #47aeff;"></i>
-              <h3><a href="">Nemo Enim</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+            <h3><a href="">Tarification flexible</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
-              <h3><a href="">Eiusmod Tempor</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-anchor-line" style="color: #b2904f;"></i>
+            <h3><a href="">Support technique 24/7</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
-              <h3><a href="">Midela Teren</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-disc-line" style="color: #b20969;"></i>
+            <h3><a href="">Gestion des médicaments</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
-              <h3><a href="">Pira Neve</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-base-station-line" style="color: #ff5828;"></i>
+            <h3><a href="">Synchronisation multi-appareils</a></h3>
           </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-anchor-line" style="color: #b2904f;"></i>
-              <h3><a href="">Dirada Pack</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-disc-line" style="color: #b20969;"></i>
-              <h3><a href="">Moton Ideal</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-base-station-line" style="color: #ff5828;"></i>
-              <h3><a href="">Verdo Park</a></h3>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-4 mt-4">
-            <div class="icon-box">
-              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
-              <h3><a href="">Flavor Nivelanda</a></h3>
-            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4 mt-4">
+          <div class="icon-box">
+            <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+            <h3><a href="">Sécurité avancée</a></h3>
           </div>
         </div>
 
       </div>
-    </section><!-- End Features Section -->
+
+    </div>
+  </section><!-- End Features Section -->
+
 
 
     <!-- ======= Pricing Section ======= -->
@@ -183,49 +200,54 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>Pricing</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Tarifs</h2>
+          <p>Nous offrons des plans tarifaires flexibles et adaptés aux besoins spécifiques de votre pharmacie. Que vous gériez une petite officine ou une grande chaîne de pharmacies, nous avons une solution qui vous conviendra parfaitement</p>
         </div>
 
         <div class="row no-gutters">
 
           <div class="col-lg-4 box">
-            <h3>Free</h3>
-            <h4>$0<span>per month</span></h4>
+            <h3>Gratuit</h3>
+            <h4>$0<span>par mois</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
+              <li><i class="bx bx-check"></i> Enregistrer jusqu'à 25 produits</li>
+              <li><i class="bx bx-check"></i> 50 transactions par mois</li>
+              <li><i class="bx bx-check"></i> 1 Gestionnaire</li>
+              <li><i class="bx bx-check"></i> Support technique opportun</li>
+              <li class="na"><i class="bx bx-x"></i> <span>Application hors ligne</span></li>
+              <li class="na"><i class="bx bx-x"></i> <span>Accès anticipé aux versions beta</span></li>
             </ul>
-            <a href="#" class="btn-buy">Get Started</a>
+            <a href="#" class="btn-buy">Commencer</a>
           </div>
 
           <div class="col-lg-4 box featured">
             <h3>Business</h3>
-            <h4>$14.99<span>per month</span></h4>
+            <h4>$14.99<span>par mois</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-              <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                <li><i class="bx bx-check"></i> Nombre illimité des produits</li>
+                <li><i class="bx bx-check"></i> Nombre illimité des transactions</li>
+                <li><i class="bx bx-check"></i> Nombre illimité des Gestionnaires</li>
+                <li><i class="bx bx-check"></i> Application hors ligne</li>
+                <li><i class="bx bx-check"></i> Accès anticipé aux versions beta</li>
+                <li><i class="bx bx-check"></i> Support technique 24h/24</li>
+                <li class="na"><i class="bx bx-x"></i> Pas de frais mensuel</li>
             </ul>
-            <a href="#" class="btn-buy">Get Started</a>
+            <a href="#" class="btn-buy">Prendre mon abonnement</a>
           </div>
 
           <div class="col-lg-4 box">
-            <h3>Developer</h3>
-            <h4>$500<span>per month</span></h4>
+            <h3>Licence à vie</h3>
+            <h4>$500<span>une seule fois</span></h4>
             <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-              <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
+                <li><i class="bx bx-check"></i> Pas de frais mensuel</li>
+                <li><i class="bx bx-check"></i> Nombre illimité des produits</li>
+                <li><i class="bx bx-check"></i> Nombre illimité des transactions</li>
+                <li><i class="bx bx-check"></i> Nombre illimité des Gestionnaires</li>
+                <li><i class="bx bx-check"></i> Application hors ligne</li>
+                <li><i class="bx bx-check"></i> Accès anticipé aux versions beta</li>
+                <li><i class="bx bx-check"></i> Support technique 24h/24</li>
             </ul>
-            <a href="#" class="btn-buy">Get Started</a>
+            <a href="#" class="btn-buy">Payer maintenant</a>
           </div>
 
         </div>
@@ -234,73 +256,122 @@
     </section><!-- End Pricing Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
-    <section id="faq" class="faq">
-      <div class="container">
+<section id="faq" class="faq">
+    <div class="container">
 
-        <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-        </div>
-
-        <ul class="faq-list">
-
-          <li>
-            <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Non consectetur a erat nam at lectus urna duis? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq1" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq2" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq3" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq4" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Tempus quam pellentesque nec nam aliquam sem et tortor consequat? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq5" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-              </p>
-            </div>
-          </li>
-
-          <li>
-            <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Tortor vitae purus faucibus ornare. Varius vel pharetra vel turpis nunc eget lorem dolor? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
-            <div id="faq6" class="collapse" data-bs-parent=".faq-list">
-              <p>
-                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis tellus in metus vulputate eu scelerisque. Pellentesque diam volutpat commodo sed egestas egestas fringilla phasellus faucibus. Nibh tellus molestie nunc non blandit massa enim nec.
-              </p>
-            </div>
-          </li>
-
-        </ul>
-
+      <div class="section-title">
+        <h2>Questions Fréquemment Posées</h2>
       </div>
-    </section><!-- End Frequently Asked Questions Section -->
+
+      <ul class="faq-list">
+
+        <li>
+          <div data-bs-toggle="collapse" class="collapsed question" href="#faq1">Quelles sont les fonctionnalités principales de l'application de gestion de pharmacie ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+          <div id="faq1" class="collapse" data-bs-parent=".faq-list">
+            <p>
+              Notre application offre des fonctionnalités essentielles telles que la gestion des stocks, des commandes et des fournisseurs, la génération de rapports détaillés, la gestion des clients, et la possibilité de gérer plusieurs utilisateurs avec différents niveaux d'accès.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div data-bs-toggle="collapse" href="#faq2" class="collapsed question">Est-ce que votre application est conforme aux normes de confidentialité et de sécurité des données médicales ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+          <div id="faq2" class="collapse" data-bs-parent=".faq-list">
+            <p>
+              Oui, notre application respecte les normes de confidentialité et de sécurité des données médicales les plus strictes, y compris la conformité avec la norme HIPAA (Health Insurance Portability and Accountability Act) aux États-Unis et d'autres réglementations internationales similaires.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div data-bs-toggle="collapse" href="#faq3" class="collapsed question">Comment puis-je ajouter de nouveaux produits à mon inventaire et les mettre à jour ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+          <div id="faq3" class="collapse" data-bs-parent=".faq-list">
+            <p>
+              Vous pouvez ajouter de nouveaux produits à votre inventaire en saisissant les détails tels que le nom, la quantité, le prix et la date d'expiration. Vous pouvez également mettre à jour les informations des produits existants à tout moment.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div data-bs-toggle="collapse" href="#faq4" class="collapsed question">Est-ce que votre application prend en charge les paiements et les factures ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+          <div id="faq4" class="collapse" data-bs-parent=".faq-list">
+            <p>
+              Oui, notre application permet de gérer les paiements et les factures. Vous pouvez créer des factures pour les clients, enregistrer les paiements reçus et générer des rapports sur les transactions financières de votre pharmacie.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div data-bs-toggle="collapse" href="#faq5" class="collapsed question">Puis-je accéder à l'application depuis plusieurs appareils ou emplacements ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+          <div id="faq5" class="collapse" data-bs-parent=".faq-list">
+            <p>
+              Oui, notre application est basée sur le cloud, ce qui vous permet d'y accéder depuis n'importe quel appareil connecté à Internet, que ce soit un ordinateur, une tablette ou un smartphone. Vous pouvez également autoriser l'accès à plusieurs utilisateurs avec des permissions spécifiques.
+            </p>
+          </div>
+        </li>
+
+        <li>
+          <div data-bs-toggle="collapse" href="#faq6" class="collapsed question">Est-ce que votre application offre un support technique en cas de problème ou de question ? <i class="bi bi-chevron-down icon-show"></i><i class="bi bi-chevron-up icon-close"></i></div>
+          <div id="faq6" class="collapse" data-bs-parent=".faq-list">
+            <p>
+              Oui, nous proposons un support technique complet à nos utilisateurs. Vous pouvez nous contacter par email, téléphone ou chat en direct pour toute question ou assistance technique. Notre équipe est là pour vous aider à utiliser notre application de manière optimale.
+            </p>
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </section><!-- End Frequently Asked Questions Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+
+            <div class="section-title">
+                <h2>Témoignages</h2>
+            </div>
+
+            <div class="row">
+
+                <!-- Témoignage 1 -->
+                <div class="col-lg-4">
+                    <div class="testimonial-item">
+                        <h3>Clément NKOLOMONYI</h3>
+                        <p class="testimonial-text">
+                            "J'ai été agréablement surpris par la simplicité d'utilisation et la puissance de l'application de gestion de pharmacie de Pharmapp. Cela a vraiment facilité la gestion de mon officine au quotidien."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Témoignage 2 -->
+                <div class="col-lg-4">
+                    <div class="testimonial-item">
+                        <h3>Pierre MWAMBA</h3>
+                        <p class="testimonial-text">
+                            "Grâce à Pharmapp, j'ai pu optimiser mes opérations et améliorer la satisfaction de mes clients. Je recommande vivement cette solution à tous les professionnels de la pharmacie."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Témoignage 3 -->
+                <div class="col-lg-4">
+                    <div class="testimonial-item">
+                        <h3>Jacques KILUNGU</h3>
+                        <p class="testimonial-text">
+                            "Pharmapp a vraiment changé la façon dont je gère mon établissement. C'est une solution complète qui répond à tous mes besoins. Je ne pourrais plus m'en passer!"
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section><!-- End Testimonials Section -->
+
+
+
+
 
     <livewire:contact-us/>
 
