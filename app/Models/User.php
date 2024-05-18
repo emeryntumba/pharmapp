@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use LemonSqueezy\Laravel\Billable;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -14,6 +15,7 @@ class User extends Authenticatable
     use HasApiTokens;
     use HasFactory;
     use HasRoles;
+    use Billable;
 
     use Notifiable;
 
