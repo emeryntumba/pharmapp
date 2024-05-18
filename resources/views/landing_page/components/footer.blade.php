@@ -30,11 +30,11 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Nos Produits & Services</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Pharmapp</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Health - Chatbot</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Health Analytic Tools</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Promouvoir l'IA au service médical</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Eye desease diagnostic</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://opencommonhealth.com">Pharmapp</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://opencommonhealth.com">Health - Chatbot</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://opencommonhealth.com">Health Analytic Tools</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://opencommonhealth.com">Promouvoir l'IA au service médical</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://opencommonhealth.com/eyes-diagnostic">Eye desease diagnostic</a></li>
             </ul>
           </div>
 
